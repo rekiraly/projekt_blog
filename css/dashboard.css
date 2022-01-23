@@ -1,0 +1,374 @@
+/******************/
+/***** COMMON *****/
+/******************/
+
+* {
+	box-sizing: border-box;
+}
+#container{
+	
+}
+label {
+	font-size: 0.9em;
+	color: #666;
+}
+img {
+	width: 47%;
+}
+
+header{
+	border-bottom: 1px dashed lightgray;
+}
+
+
+
+a {
+	color: darkred;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.fleft {
+	float: left;
+	margin-right: 1rem;
+}
+.fright {
+	float: right;
+	margin-left: 1rem;
+}
+
+.clearer {
+	clear: both;
+}
+.success {
+	color: green;
+	font-size: 0.8em;
+}
+.error {
+	color: red;
+	font-size: 0.9em;
+}
+.info {
+	color: darkorange;
+	font-size: 0.8em;
+}
+
+#mySidenav{
+	border: none;
+	height: 0%;
+
+	/*max-width: 200px;*/
+	/*position: absolute;
+	top: 10vw;
+	right: 4vw;*/
+	
+}
+
+
+/* Den Placeholder-Font selbst bestimmen: */
+::-webkit-input-placeholder { font-family: verdana; }
+:-moz-placeholder { font-family: verdana; }
+::-moz-placeholder { font-family: verdana; }
+:-ms-input-placeholder { font-family: verdana; }
+
+input[type="submit"] {
+	color: #666;
+	cursor: pointer;
+}
+input[type="submit"]:hover {
+	background-color: lightblue;
+	color: white;
+}
+
+/*HEADER*/
+header{
+	position: fixed;
+	top: 0;
+	background-color:#999;
+	width: 100%;
+	left: 0;
+	padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+h1, h2 {
+	font-size: 1rem;
+	letter-spacing: 0.3em;
+	color: darkred;
+	margin: 0;
+	padding: 0;
+}
+
+header p {
+	margin: 0;
+	padding-top: 0.5em;
+}
+
+
+
+
+
+
+
+/*************************/
+/***** DASHBOARD.PHP *****/
+/*************************/
+body.dashboard {
+	padding-bottom: 10px;
+}
+
+h2.dashboard {
+	color: darkgray;
+}
+.name {
+	color: darkred;
+}
+.bold {
+	font-weight: bold;
+}
+
+/* Form Elements */
+form.dashboard {
+	margin-bottom: 83px;
+	font-size: 0.8em;
+	color: #666;
+}
+input.dashboard, select.dashboard, textarea.dashboard {
+	display: inline-block;
+	width: 500px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid darkgray;
+	padding: 5px;
+}
+input[type="file"] {
+	width: 345px;
+}
+input[type="submit"].dashboard {
+	height: 50px;
+}
+input[type="checkbox"] {
+	width: 5px;
+	margin: 20px 0;
+}
+input[type="radio"] {
+	width: 20px;
+	margin-bottom: 15px;
+}
+select.dashboard {
+	color: #666;
+}
+textarea.dashboard {
+	height: 400px;
+}
+.alignment {
+	text-align: right;
+	color: #666;
+	width: 150px;
+	padding: 3px 10px;
+	font-weight: normal;
+	border-radius: 5px;
+	border: 1px solid darkgray;
+}
+
+.flexbox{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.wrap-box{
+	position: relative;
+	min-width: 200px;
+    /* width: 45vw; */
+    /* height: 30vh; */
+   
+    line-height: 1.5;
+    border: 3px dotted#683107;
+    margin: auto;
+    padding: 1rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.hidden{
+	display: none;
+}
+
+/********** SPECIAL POPUP MESSAGES STYLES **********/
+popupBox {
+	border: 1px solid darkorange;
+	box-shadow: 20px 10px 25px 0px rgba(51,51,51,0.5);
+	border-radius: 10px;
+	background-color: rgba(230,230,230,0.9);
+	width: 50%;
+	margin: auto;	
+	text-align: center;
+	color: #666;
+	padding: 25px;
+	position: fixed;
+   margin: auto;
+	left: 25%;
+	top: 40%;
+	font-size: 1.3rem;
+}
+popupBox p {
+	color: black;
+}
+
+popupBox a {
+	border-radius: 5px;
+	padding: 5px 8px;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 1.0rem;
+}
+popupBox a:hover, popupBox a.button:hover {
+	background-color: rgba(255,140,0,0.3);
+}
+popupBox a.button {
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid gray;
+	color: gray;
+	margin-bottom: 20px;
+}
+popupBox a.button:hover {
+	color: black;
+}
+
+@media(max-width:700px){
+	
+	body {
+		line-height: 1.3em;
+		padding: 0.3em;
+		font-size: 0.7em;
+		
+	}
+	.blogs {
+		
+		padding: 2.5em 10px 10px 10px;
+		
+	}
+	.categories {
+		/*border: none;
+		right:0px ; */
+	}
+	.cat {
+		
+		/*right: 0rem;*/
+		
+	}
+	header{
+		position: fixed;
+		top: 0;
+		background-color:#999;
+		width: 100%;
+		left: 0;
+		padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+	}
+	h1, h2 {
+		font-size: 1rem;
+		letter-spacing: 0.3em;
+		color: darkred;
+		margin: 0;
+		padding: 0;
+	}
+	
+	header p {
+		margin: 0;
+		padding-top: 0.5em;
+	}
+	
+}
+
+/*Dachboard switsch*/
+
+
+/*html,body { height:100% }
+body { background:linear-gradient(#f7f7f7,#e0e0e0); margin:0 }*/
+
+.wrap { position:relative; width:33.33%; margin:-72px 0; top:50%; float:left }
+label {
+	 margin:-2.0em 0 0em 21em; 
+	}
+/*input { position:absolute; left:-9999px }*/
+
+/*** ==== Slider v1: ==== ****/
+
+/********** Background:*/
+
+/*/ ********** Background:*/
+.slider-v2 {
+  position: relative; display: block;
+  width: 5.5em; height: 3em;
+  cursor: pointer;
+  border-radius: 1.5em;
+  transition: 350ms;
+  /*background: linear-gradient(rgba(#000,0.07),rgba(#fff,0)),#ddd;*/
+  background: linear-gradient(0deg, rgba(7, 7, 7, 0.57), rgba(133, 132, 132, 0.1) 60%, #ddd);
+  /*box-shadow:
+    0 0.07em 0.1em -0.1em rgba(#000,.4) inset,
+	0 0.05em 0.08em -0.01em rgba(#fff,.7);*/
+	
+    box-shadow: 0 0.07em 0.1em -0.1em rgba(253, 253, 240,0.4) inset,
+    0 0.05em 0.08em -0.01em rgba(255,255,255,.7);
+}
+
+/*/ ********** Switch:*/
+.slider-v2::after {
+
+  position: absolute; content:'nein';
+  width: 2em; height: 2em;
+  top: 0.5em; left: 0.5em;
+  border-radius: 50%;
+  transition: 250ms ease-in-out;
+  background: linear-gradient(#f5f5f5 10%,#eee);
+  box-shadow:
+    0 0.1em 0.15em -0.05em rgba(#fff,.9
+    ) inset,
+    0 0.2em 0.2em -0.12em rgba(#000,.5);
+}
+
+/*/ ********** Channel:*/
+.slider-v2::before {
+  position: absolute; 
+  width: 4em; height: 1.5em;
+  top: 0.75em; left: 0.75em;
+  border-radius: 0.75em;
+  transition: 250ms ease-in-out;
+  background: linear-gradient(rgba(#000,0.07),rgba(#fff,0.1)),#d0d0d0;
+  box-shadow:
+    0 0.08em 0.15em -0.1em rgba(#000,.5) inset,
+    0 0.05em 0.08em -0.01em rgba(#fff,.7),
+    0 0 0 0 rgba(#4c6,.7) inset;
+}
+
+input:checked + .slider-v2::before {
+  box-shadow:
+    0 0.08em 0.15em -0.1em rgba(#000,.5) inset,
+    0 0.05em 0.08em -0.01em rgba(#fff,.7),
+    3em 0 0 0 rgba(#4c6,.7) inset;
+}
+
+input:checked + .slider-v2::after {
+	content:'ja';
+	left: 3em;
+}
+
+
+/*END SWITSCH*/
+
+@media(max-width:500px){
+	.blogs {
+		
+		padding: 3.5em 10px 10px 10px;
+		
+	}
+	
+	.fleft {
+		float: left;
+		margin-right: 0.2rem;
+	}
+	.fright {
+		float: right;
+		margin-left: 0.2rem;
+	}
+}

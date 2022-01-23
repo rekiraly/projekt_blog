@@ -1,0 +1,383 @@
+/******************/
+/***** COMMON *****/
+/******************/
+
+* {
+	box-sizing: border-box;
+}
+#container{
+	
+}
+label {
+	font-size: 0.9em;
+	color: #666;
+}
+img {
+	width: 47%;
+}
+
+header{
+	border-bottom: 1px dashed lightgray;
+}
+
+
+a {
+	color: darkred;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.fleft {
+	float: left;
+	margin-right: 1rem;
+}
+.fright {
+	float: right;
+	margin-left: 1rem;
+}
+
+.clearer {
+	clear: both;
+}
+.success {
+	color: green;
+	font-size: 0.8em;
+}
+.error {
+	color: red;
+	font-size: 0.9em;
+}
+.info {
+	color: darkorange;
+	font-size: 0.8em;
+}
+
+#mySidenav{
+	border: none;
+	height: 0%;
+
+	/*max-width: 200px;*/
+	/*position: absolute;
+	top: 10vw;
+	right: 4vw;*/
+	
+}
+
+
+/* Den Placeholder-Font selbst bestimmen: */
+::-webkit-input-placeholder { font-family: verdana; }
+:-moz-placeholder { font-family: verdana; }
+::-moz-placeholder { font-family: verdana; }
+:-ms-input-placeholder { font-family: verdana; }
+
+input[type="submit"] {
+	color: #666;
+	cursor: pointer;
+}
+input[type="submit"]:hover {
+	background-color: lightblue;
+	color: white;
+}
+
+
+
+/*********************/
+/***** INDEX.PHP *****/
+/*********************/
+#login{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 200;
+}
+body {
+	font-family: georgia;
+	letter-spacing: 0.04em;
+	padding: 6rem 50px 50px 50px;
+	line-height: 1.5em;
+	position: relative;
+	
+}
+header{
+	position: fixed;
+	top: 0;
+	
+	background-color:#999;
+	width: 100%;
+	left: 0;
+	padding: 0.5rem 3rem 0.5rem 3rem;
+	border-bottom: 3px solid lightgray;
+}
+h1, h2 {
+	font-size: 1.5rem;
+	letter-spacing: 0.3em;
+	color: darkred;
+}
+h2 {
+	letter-spacing: 0.1em;
+	font-size: 1.2em;
+}
+
+/* Form Elements */
+input {
+	display: inline-block;
+	width: 150px;
+}
+.textRight{
+	position: relative;
+	text-align: right;
+}
+
+.marker {
+	font-weight: bold;
+	color: darkred;
+	margin-left: 5px;
+}
+
+/* Kommentar-Formular */
+.blogEntry form {
+	margin: 20px 0;
+}
+.blogEntry label {
+	color: darkred;
+	font-size: 0.8em;
+}
+.blogEntry input, .blogEntry textarea {
+	width: 97%;
+	border-radius: 5px;
+	border: 1px solid #999;
+	padding: 5px;
+}
+.blogEntry textarea {
+	height: 100px;
+}
+
+a.expand {
+	font-size: 0.8em;
+}
+a.expand:hover {
+	font-size: 0.8em;
+}
+.blogs {
+	border: 3px solid lightgray;
+	border-radius: 10px;
+	width: 100%;/*new*/
+	padding: 10px;
+	transition: 0.5s; /*new*/
+}
+.headline {
+	color: darkgray;
+}
+.author {
+	color: darkgray;
+}
+.unterheader{
+	position: relative;
+}
+/*****************************************************************************************************/
+/*button 'Themen'*/
+
+.cat {
+	/*position: fixed;*/
+	
+	background-color: #999;
+	border: 3px solid lightgray;
+	border-radius: 10px;
+	padding: 0.2em;
+	
+
+	
+}
+span.cat{     
+	/*display: block;*/
+	padding-top: 0.2em;
+}
+
+.cat:hover{
+	cursor: pointer;
+	background-color: darkred;
+	color: rgb(77, 72, 72);
+}
+
+
+/************************************************************************************************************/
+
+/**ВЫПАДАЮЩИЙ СПИСОК ТЕМ И КАТЕГОРИЙ**/
+
+.categories {
+	position: fixed; /* Оставаться на месте */
+	top:4rem;
+	right: 3.5rem;
+	z-index: 1; /* Оставайтесь поверх других блоков */
+	/*overflow-x: hidden;  спрятать выходящее за родительский блок-hidden */
+	transition: 0.5s; /* 0.5 секунд эффект перехода, чтобы скользить в sidenav */
+	/*max-height: 100%;*/ /*test*/
+	/*width: 0%;test*/
+	/*height: 0%; test*/
+	padding: 0px 0;/*padding: 50px 0*/
+	/*border: 3px solid lightgray;*/
+	border-radius: 10px;
+	text-align: right;
+	/*background-color: darkgray;*/
+	
+}
+#mySidenav{
+	overflow-x: hidden;
+}
+.categories .closebtn {
+	position: absolute;
+	top: 0;
+	right:0rem;
+	background-color: lightgray;
+	
+	font-size: 36px;
+	
+  }
+
+.categories ul {
+	margin-top: 3em;
+	list-style: none;
+	border: 3px solid rgb(253, 3, 199);	
+	text-align: center;
+}
+.categories ul li {
+	position:relative;
+	/*margin-top: 3em;*/
+	background-color: rgb(226, 247, 36);
+	border: 3px solid #262627;
+
+}
+.categories ul ul{
+	margin: 0 1.2em 2em 0;/**   выравнивание блока с подтемами относительно блока с темами*/
+	text-align: center;
+	display: none;
+	/*transition: all 2s linear;*/
+	background-color: rgb(240, 10, 152);
+	z-index: 100;
+
+	
+	border: 1px solid #0404f7;
+	position: absolute;
+	right:75%;
+	top: 0;	
+	
+}
+
+.categories ul ul li a{
+	background-color:rgb(38, 65, 146);
+	overflow-x: visible;	
+}
+
+.categories ul ul li {
+	background-color:rgb(47, 189, 245);
+	
+}
+
+.categories li:hover > ul{
+	
+	display: block;
+}
+.categories a {
+	display: inline-block;
+	/*display: block;new*/
+  	transition: 0.3s;/*new*/
+	text-decoration: none;
+	padding: 10px;
+	margin: 5px;
+	font-weight: bold;
+	color: darkred;
+	
+	border: 1px solid white;
+	border-radius: 5px;
+}
+.categories a:hover {
+	border: 1px solid darkred;
+	color: darkred;
+	cursor: pointer;
+}
+
+
+nav a{
+	display: block;
+}
+
+
+
+
+
+
+.comment {
+	color: #666;
+	font-size: 0.8em;
+	/*border-top: ;*/
+}
+.nameComments{
+	font-size: 0.7em;
+	color: darkred;
+	border-bottom:1px solid #999 ;
+}
+.countComments {
+	color: darkred;
+	float: right;
+	font-size: 0.7em;
+}
+
+/******************************************************************************************************************************/
+
+@media(max-width:700px){
+	
+	body {
+		line-height: 1.3em;
+		padding: 0.3em;
+		font-size: 0.7em;
+		
+	}
+	.blogs {
+		
+		padding: 2.5em 10px 10px 10px;
+		
+	}
+	
+	header{
+		position: fixed;
+		top: 0;
+		background-color:#999;
+		width: 100%;
+		left: 0;
+		padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+	}
+	h1, h2 {
+		font-size: 1rem;
+		letter-spacing: 0.3em;
+		color: darkred;
+		margin: 0;
+		padding: 0;
+	}
+	
+	header p {
+		margin: 0;
+		padding-top: 0.5em;
+	}
+	
+}
+
+
+
+@media(max-width:500px){
+	.blogs {
+		
+		padding: 3.5em 10px 10px 10px;
+		
+	}
+	
+	.fleft {
+		float: left;
+		margin-right: 0.2rem;
+	}
+	.fright {
+		float: right;
+		margin-left: 0.2rem;
+	}
+}
