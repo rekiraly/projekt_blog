@@ -261,7 +261,7 @@ class Category implements iCategory
     }
 
     /***********************************************************/
-    /********** FETCH CATEGORY FROM DB **********/
+    /********** FETCH ALL CATEGORY FOR THE THEMA FROM DB **********/
     /**
      *
      *    FETCHES A CATEGORY FOR THE THEMES FROM DB
@@ -280,8 +280,8 @@ class Category implements iCategory
         if (DEBUG_C) {
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
-        $categoriesArray[] = 0;
-        $sql = "SELECT * FROM category WHERE thema_id=?";
+       // $categoriesArray[] = null;
+        $sql = "SELECT * FROM category INNER JOIN thema USING(thema_id) WHERE thema_id=?";
         $params = array($thema_id);
         //Schritt 2 DB: SQL-Statement vorbereiten
         $statement = $pdo->prepare($sql);
@@ -297,11 +297,14 @@ class Category implements iCategory
         // oder mit Ternärem Operator:
         //Schritt 4 DB: Daten weiterverarbeiten
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
             $thema = new Thema($row['thema_id'], $row['thema_name']);
             $categoriesArray[] = new Category($row['cat_id'], $row['cat_name'], $thema);
 
         }
-
+               // echo "<pre>";
+                //print_r( $categoriesArray);
+                //echo "</pre>";
         //$categoriesArray = $statement->fetchAll();
 
         // Prüfen, ob ein Datensatz zurückgeliefert wurde
