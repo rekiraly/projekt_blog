@@ -522,27 +522,28 @@ if (DEBUG) {
             <main class='blogs'>
 
                 <!-- -------------------------------TEST NEW NAVI --------------------------------- -->
-                
-                <div>
-                <?php if ($themesArray):?>
-                       <ul>
-                            
-                            <?php 
-                            $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
-                            
-                
-                            foreach ($catArray as $categorie):
-                            ?>
-                                <li>
-                                <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> <!--fehler-->
-                                    
-                                </li>
-                            <?php endforeach?>
-                        </ul>                     
-                    <?php endif?> 
-                          
-                            
-                </div>
+                <div class = 'workTable'>
+                    <div class='wrapNav'>
+                        <?php if ($themesArray):?>
+                            <ul>
+                                
+                                <?php 
+                                $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
+                                
+                    
+                                foreach ($catArray as $categorie):
+                                ?>
+                                    <li>
+                                    <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> <!--fehler-->
+                                        
+                                    </li>
+                                <?php endforeach?>
+                            </ul>                     
+                        <?php endif?> 
+                    </div><!--END WRAP NAV -->
+
+
+                </div><!--END WorkTable -->
                 <!-- ------------------------------- END TEST NEW NAVI --------------------------------- -->
 
 

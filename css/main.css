@@ -176,7 +176,39 @@ a.expand:hover {
 .unterheader{
 	position: relative;
 }
+
+/******************************************WrapNavi***********************************************************/
+
+.wrapNav ul {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	list-style: none;
+}
+.wrapNav ul li{
+	width: 120px;
+	margin: 10px;
+	background-color: #D26CED;
+}
+
+.wrapNav ul li a{
+	display: block;
+	padding: 18px;
+}
+ 
+.wrapNav ul li a:hover{
+	
+}
+
+
 /*****************************************************************************************************/
+/*****************************************WorkTable************************************************************/
+
+
+/*****************************************************************************************************/
+
+
+
 /*button 'Themen'*/
 
 .cat {
