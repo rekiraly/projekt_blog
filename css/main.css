@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 #container{
-	
+	position: relative;/*test*/
 }
 label {
 	font-size: 0.9em;
@@ -20,6 +20,17 @@ header{
 	border-bottom: 1px dashed lightgray;
 }
 
+
+body{
+	overflow: hidden;/*NEW*/
+	position: relative;
+	-moz-transition: background-color 0.8s 0.1s ease;
+	-o-transition: background-color 0.8s 0.1s ease;
+	-webkit-transition: background-color 0.8s 0.1s ease;
+}
+main{
+	position: relative;
+}
 
 a {
 	color: darkred;
@@ -202,11 +213,39 @@ a.expand:hover {
 
 
 /*****************************************************************************************************/
+
 /*****************************************WorkTable************************************************************/
+
+#workTable{
+	
+	height: 100vh;
+	width: 100vw;
+	position: absolute;/*test*/
+	/*left:0;*/
+	background-color: green;
+	z-index: 4;
+}
+
+
+.switchUnten{
+	position:absolute;
+	z-index: 5;
+	background-color: rgb(202, 113, 30);
+	bottom:20%;
+	left:50%;
+}
 
 
 /*****************************************************************************************************/
-
+.switchOben{
+	position:relative;
+	top: 0px;
+	left:50%
+}
+#lastNews{
+	height: 0%;
+	border:3px solid #0404f7;
+}
 
 
 /*button 'Themen'*/

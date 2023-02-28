@@ -443,6 +443,14 @@ if (DEBUG) {
             function catForThemenClose(){
                 //catSelect.innerHTML = "<li></li>";
             }
+            function drehenUp(){
+                document.body.style.overflow="scroll";
+                
+                document.body.style.bottom="100vh";
+                
+               
+                
+            }
         </script>
 	</head>
 
@@ -519,71 +527,73 @@ if (DEBUG) {
 
 		    <!-- ------------------------------- BLOG ENTRIES --------------------------------- -->
 
+            
+        
+            <!-- -------------------------------workTable --------------------------------- -->
+            <div id = 'workTable'>
+                <div class='wrapNav'>
+                    <?php if ($themesArray):?>
+                        <ul>
+                            
+                            <?php 
+                            $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
+                            
+                
+                            foreach ($catArray as $categorie):
+                            ?>
+                                <li>
+                                <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> <!--fehler-->
+                                    
+                                </li>
+                            <?php endforeach?>
+                        </ul>                     
+                    <?php endif?> 
+                </div><!--END WRAP NAV -->
+
+                <div class='switchUnten'  onclick = 'drehenUp()'><button>Last News</button></div>
+            </div><!--END WorkTable -->
+            
+                <!-- ------------------------------- END workTable --------------------------------- -->
             <main class='blogs'>
+                <div id = 'lastNews'>
+                    <div class='switchOben'  onclick = 'drehenUnten()'><button>Zu Haupt Table </button></div>
+                    <?php if ($blogsArray): ?>
 
-                <!-- -------------------------------TEST NEW NAVI --------------------------------- -->
-                <div class = 'workTable'>
-                    <div class='wrapNav'>
-                        <?php if ($themesArray):?>
-                            <ul>
-                                
-                                <?php 
-                                $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
-                                
-                    
-                                foreach ($catArray as $categorie):
-                                ?>
-                                    <li>
-                                    <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> <!--fehler-->
-                                        
-                                    </li>
-                                <?php endforeach?>
-                            </ul>                     
-                        <?php endif?> 
-                    </div><!--END WRAP NAV -->
+                        <?php foreach ($blogsArray as $blog): ?>
+                            <?php $dateTime = ($blog->getBlog_date())?>
 
+                            <article class='blogEntry'>
 
-                </div><!--END WorkTable -->
-                <!-- ------------------------------- END TEST NEW NAVI --------------------------------- -->
+                                <a name='entry<?=$blog->getBlog_id()?>'></a>
+                                                    
+                                <p class='fright'><a href='?action=showCategory&id=<?=$blog->getCategory()->getCat_id()?>'>Thema: <?=$blog->getCategory()->getThema()->getThema_name()?>  - <?=$blog->getCategory()->getCat_name()?></a></p>
+                                <h2 class='clearer'><?=$blog->getBlog_headline()?></h2>
+                                <a href="comment.php?category=<?=$blog->getCategory()->getCat_name()?>"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
 
+                                <p class='author'><?=$blog->getUser()->getFullname()?> (<?=$blog->getUser()->getUsr_city()?>) schrieb am <?=isoToEuDateTime($blog->getBlog_date())['date']?> um <?=isoToEuDateTime($blog->getBlog_date())['time']?> Uhr:</p>
 
-                <?php if ($blogsArray): ?>
+                                <p class='blogContent'>
 
-                    <?php foreach ($blogsArray as $blog): ?>
-                        <?php $dateTime = ($blog->getBlog_date())?>
+                                    <?php if ($blog->getBlog_image()): ?>
+                                        <img class='<?=$blog->getBlog_imageAlignment()?>' src='<?=$blog->getBlog_image()?>' alt='' title=''>
+                                    <?php endif?>
 
-                        <article class='blogEntry'>
+                                    <?=nl2br($blog->getBlog_content())?>
+                                </p>
 
-                            <a name='entry<?=$blog->getBlog_id()?>'></a>
-                                                
-                            <p class='fright'><a href='?action=showCategory&id=<?=$blog->getCategory()->getCat_id()?>'>Thema: <?=$blog->getCategory()->getThema()->getThema_name()?>  - <?=$blog->getCategory()->getCat_name()?></a></p>
-                            <h2 class='clearer'><?=$blog->getBlog_headline()?></h2>
-                            <a href="comment.php?category=<?=$blog->getCategory()->getCat_name()?>"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
+                                <div class='clearer'></div>
 
-                            <p class='author'><?=$blog->getUser()->getFullname()?> (<?=$blog->getUser()->getUsr_city()?>) schrieb am <?=isoToEuDateTime($blog->getBlog_date())['date']?> um <?=isoToEuDateTime($blog->getBlog_date())['time']?> Uhr:</p>
+                                <br>
+                                <hr>
 
-                            <p class='blogContent'>
+                            </article>
 
-                                <?php if ($blog->getBlog_image()): ?>
-                                    <img class='<?=$blog->getBlog_imageAlignment()?>' src='<?=$blog->getBlog_image()?>' alt='' title=''>
-                                <?php endif?>
+                        <?php endforeach?>
 
-                                <?=nl2br($blog->getBlog_content())?>
-                            </p>
-
-                            <div class='clearer'></div>
-
-                            <br>
-                            <hr>
-
-                        </article>
-
-                    <?php endforeach?>
-
-                <?php else: ?>
-                    <p class="info">Noch keine Blogeinträge vorhanden.</p>
-                <?php endif?>
-
+                    <?php else: ?>
+                        <p class="info">Noch keine Blogeinträge vorhanden.</p>
+                    <?php endif?>
+                </div>
             </main>
 
 		    <!-- ---------------------------- BLOG ENTRIES ENDE ------------------------------- -->
