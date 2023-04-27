@@ -163,7 +163,7 @@ if (isset($_GET['action'])) {
         
         }
 
-        $blogsArray = Blog::fetchBlogEntriesByThemaFromDb($pdo, $thema_id); //переделать
+        $blogsArray = Blog::fetchBlogEntriesByThemaFromDb($pdo, $thema_id); 
 
         if (DEBUG) {
             echo "<pre class='debug'>Line <b>" . __LINE__ . "</b> <i>(" . basename(__FILE__) . ")</i>:<br>\r\n";
@@ -403,7 +403,7 @@ if (DEBUG) {
             //var optionsHtml ="";
             var catSelect = null;
             function catForThemen(sel){
-                
+              
                 var xmlhttp = new XMLHttpRequest();
 
                 xmlhttp.onreadystatechange = function() {
@@ -438,30 +438,74 @@ if (DEBUG) {
                 console.log(sel);
                 xmlhttp.open('get', 'cat_for_them.php?thema_id='+sel, true);
                 xmlhttp.send();
+                
             }
 
             function catForThemenClose(){
                 //catSelect.innerHTML = "<li></li>";
             }
             function drehenUp(){
-                document.body.style.overflow="scroll";
+                document.body.style.overflowY="scroll";
+                document.getElementById('workTable').style.top="-200vh";
+                document.getElementById('workTable').style.transition = "all 2s ease-in-out";//test
+                            
+            }
+            function drehenUp2(){
+                document.body.style.overflowY="scroll";
+                document.getElementById('workTable').style.top="-200vh";
+                         
+            }
+
+            function drehenUnten(){
+                document.body.style.overflow="hidden";
                 
-                document.body.style.bottom="100vh";
-                
-               
-                
+                document.getElementById('workTable').style.top="10rem";  
             }
         </script>
 	</head>
 
 	<body>
+        
+<!-- -------------------------------  workTable --------------------------------- -->
+<script>
+    <?php if (($_GET['action'] == "showCategory")||($_GET['action'] == "showThemen")):?>
+        setTimeout(() => {
+          /*  document.getElementById("workTable").style.visibility = "hidden";*/
+          drehenUp2();
+        }, 0.5);
+    <?php endif?> 
+
+ </script>
+        <div id = 'workTable'>
+            <div class='wrapNav'>
+                <?php if ($themesArray):?>
+                    <ul>
+                        
+                        <?php 
+                        $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
+                        
+            
+                        foreach ($catArray as $categorie):
+                        ?>
+                            <li>
+                                <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> 
+                                
+                            </li>
+                        <?php endforeach?>
+                    </ul>                     
+                <?php endif?> 
+            </div><!--END WRAP NAV -->
+
+            <div class='switchUnten'  onclick = 'drehenUp()'><button>Last News</button></div>
+        </div>
+        <!-- ------------------------------- END workTable --------------------------------- -->
         <div id="container">
 		    <!-- ---------------------------------- HEADER ---------------------------------- -->
 
             <header>
                 <div class="fleft">
                     <h1>'MyVoyage' Blog</h1>
-                    <p><a href='<?=$_SERVER['SCRIPT_NAME']?>'>Nach oben</a></p>
+                    <p><a href='<?=$_SERVER['SCRIPT_NAME']?>'>zum Start</a></p>
                 </div>
                 <div class="fright textRight">
                     <?php if (!isset($_SESSION['usr_id'])): ?>
@@ -529,34 +573,14 @@ if (DEBUG) {
 
             
         
-            <!-- -------------------------------workTable --------------------------------- -->
-            <div id = 'workTable'>
-                <div class='wrapNav'>
-                    <?php if ($themesArray):?>
-                        <ul>
-                            
-                            <?php 
-                            $catArray = Category::fetchAllCategoriesFromDb($pdo, 1);//массив категорий для первой темы
-                            
-                
-                            foreach ($catArray as $categorie):
-                            ?>
-                                <li>
-                                <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> <!--fehler-->
-                                    
-                                </li>
-                            <?php endforeach?>
-                        </ul>                     
-                    <?php endif?> 
-                </div><!--END WRAP NAV -->
-
-                <div class='switchUnten'  onclick = 'drehenUp()'><button>Last News</button></div>
-            </div><!--END WorkTable -->
+           
             
-                <!-- ------------------------------- END workTable --------------------------------- -->
+            
+                
             <main class='blogs'>
                 <div id = 'lastNews'>
-                    <div class='switchOben'  onclick = 'drehenUnten()'><button>Zu Haupt Table </button></div>
+                    <!--<div class='switchOben'  onclick = 'drehenUnten()'><button>Zu Haupt Table </button></div>-->
+                    <div class='switchOben'><a href='<?=$_SERVER['SCRIPT_NAME']?>'>zum Start</a></div>
                     <?php if ($blogsArray): ?>
 
                         <?php foreach ($blogsArray as $blog): ?>

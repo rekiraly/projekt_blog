@@ -6,7 +6,8 @@
 	box-sizing: border-box;
 }
 #container{
-	position: relative;/*test*/
+	/*position: relative;test*/
+	background-color: #D26CED;
 }
 label {
 	font-size: 0.9em;
@@ -16,18 +17,10 @@ img {
 	width: 47%;
 }
 
-header{
-	border-bottom: 1px dashed lightgray;
-}
 
 
-body{
-	overflow: hidden;/*NEW*/
-	position: relative;
-	-moz-transition: background-color 0.8s 0.1s ease;
-	-o-transition: background-color 0.8s 0.1s ease;
-	-webkit-transition: background-color 0.8s 0.1s ease;
-}
+
+
 main{
 	position: relative;
 }
@@ -67,6 +60,7 @@ a:hover {
 #mySidenav{
 	border: none;
 	height: 0%;
+	z-index: 300;
 
 	/*max-width: 200px;*/
 	/*position: absolute;
@@ -104,17 +98,23 @@ input[type="submit"]:hover {
 	z-index: 200;
 }
 body {
+	overflow: hidden;/*NEW*/
+	position: relative;
+	/*width: 100vw;*/
+	background-color: aqua;
 	font-family: georgia;
 	letter-spacing: 0.04em;
-	padding: 6rem 50px 50px 50px;
+	padding: 10rem 50px 50px 50px;
 	line-height: 1.5em;
-	position: relative;
+	margin: 0 0 0 0;
+	
 	
 }
 header{
 	position: fixed;
 	top: 0;
-	
+	height: 10rem;
+	z-index: 10;
 	background-color:#999;
 	width: 100%;
 	left: 0;
@@ -221,9 +221,11 @@ a.expand:hover {
 	height: 100vh;
 	width: 100vw;
 	position: absolute;/*test*/
-	/*left:0;*/
+	top:10rem;
+	left:0px;
 	background-color: green;
 	z-index: 4;
+
 }
 
 
@@ -401,9 +403,10 @@ nav a{
 	
 	body {
 		line-height: 1.3em;
+		
 		padding: 0.3em;
 		font-size: 0.7em;
-		
+		position: relative;
 	}
 	.blogs {
 		
