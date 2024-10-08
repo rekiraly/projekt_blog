@@ -1,0 +1,17 @@
+555 <a onclick = "blogsForTheme(<?=$thema->getThema_id()?>)"><?=$thema->getThema_name()?></a> <!-- подставить вместо стр. 554 в index.php -->
+
+
+<a href='?action=showThemen&id=<?=$thema->getThema_id()?>'><?=$thema->getThema_name()?></a>  <!-- старая строка -->
+------------------------------------------------------------------------------------------------
+старая строка 419:
+
+optionsHtml += "<li><a href = '?action=showCategory&id=" + myObj[j][0] + "'>" + myObj[j][1] + "</a></li>";
+                            
+новая  строка:
+<a  onclick = "blogsForTheme(<?=$thema->getThema_id()?>)"><?=$thema->getThema_name()?></a> new
+
+!!!!!!!!!!optionsHtml += "<li><a onclick = 'blogForCat("  + myObj[j][0] + ")'>"
+----------------------------------------------------------------------------
+
+старая версия строки 525:
+ <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> 

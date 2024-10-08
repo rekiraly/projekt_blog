@@ -120,6 +120,7 @@ header{
 	left: 0;
 	padding: 0.5rem 3rem 0.5rem 3rem;
 	border-bottom: 3px solid lightgray;
+	opacity: .9; /*временно*/
 }
 h1, h2 {
 	font-size: 1.5rem;
@@ -187,6 +188,9 @@ a.expand:hover {
 .unterheader{
 	position: relative;
 }
+#but11{
+	display: none;
+}
 
 /******************************************WrapNavi***********************************************************/
 
@@ -240,9 +244,10 @@ a.expand:hover {
 
 /*****************************************************************************************************/
 .switchOben{
-	position:relative;
-	top: 0px;
-	left:50%
+	position:fixed;
+	top: 10rem;
+	left:50%;
+	z-index:3;
 }
 #lastNews{
 	height: 0%;
@@ -347,8 +352,8 @@ span.cat{
 	background-color:rgb(47, 189, 245);
 	
 }
-
-.categories li:hover > ul{
+/** выпадание категорий при наведении на тему в навигаторк THEMEN */
+.categories li:hover > ul{ 
 	
 	display: block;
 }
@@ -375,7 +380,7 @@ span.cat{
 nav a{
 	display: block;
 }
-
+/*****************************************************************/
 
 
 

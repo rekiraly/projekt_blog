@@ -25,8 +25,7 @@ An die Methode zu übergebende Parameter müssen im Interface vordefiniert sein 
 // bzw. kein Objekt gebildet werden kann. Die Klasse kann sich aber nach wie vor
 // vererben, so dass stattdessen aus ihren Kinderklassen Instanzen bzw. Objekte gebildet
 // werden können.
-interface iThema
-{
+interface iThema {
 
     /*
     Ein Interface darf keinerlei Attribute beinhalten.
@@ -64,10 +63,13 @@ interface iThema
     /********** SAVE NEW THEMA TO DB **********/
     public function saveToDb($pdo);
 
-    /********** FETCH SINGLE CATEGORY FROM DB  BY ID **********/
+    /********** FETCH ALL THEMES FROM DB  **********/
     //public function fetchFromDb($pdo);
+    public static function fetchAllThemesFromDb($pdo);
 
     /***********************************************************/
+
+    public function fetchThemaFromDb($pdo);
 
 }
 

@@ -310,8 +310,9 @@ if (DEBUG) {
     echo "<p class='debug'>Line <b>" . __LINE__ . "</b>: Lade Kategorien... <i>(" . basename(__FILE__) . ")</i></p>";
 }
 
-//$categoriesArray = Category::fetchAllCategoriesFromDb($pdo, $thema_id);
-$themesArray = Thema::fetchAllThemesFromDb($pdo); //исправь переменную на $themesArray
+
+$themesArray = Thema::fetchAllThemesFromDb($pdo); 
+
 
 if (DEBUG) {
     echo "<pre class='debug'>Line <b>" . __LINE__ . "</b> <i>(" . basename(__FILE__) . ")</i>:<br>\r\n";
@@ -351,8 +352,6 @@ if (DEBUG) {
                 document.getElementById("mySidenav").style.overflowX = "visible";
                 //document.getElementById("mySidenav").style.max-height = "500px";
 				//document.getElementsByClassName("blogs")[0].style.width = "100%"; //test
-				
-               
 				document.getElementById("mySidenav").style.border = "3px solid lightgray";
 
 			}
@@ -370,12 +369,6 @@ if (DEBUG) {
                 }*/
             }
             /***************************************************************************************************** */
-
-
-
-
-
-
 
             /** открывать и свернуть окно с логином */
             function closeLog(){
@@ -401,6 +394,7 @@ if (DEBUG) {
             }*/
 		
             //var optionsHtml ="";
+            /** Заполнение выпадающей панели навигатора темами с помощью  ajax */
             var catSelect = null;
             function catForThemen(sel){
               
@@ -410,26 +404,22 @@ if (DEBUG) {
                    // catSelect.innerHTML = "<li></li>";
 
                     if (this.readyState == 4 && this.status == 200) {
-                        console.log(this.responseText);
+                        /*console.log("myTestAjax"+this.responseText);*/
                         var myObj = JSON.parse(this.responseText);
                         var arreyCat = 0;
-                        //console.log("testKiraNEW "+ catSelect.innerHTML);
-
-                        /*if(catSelect){
-                            catSelect.innerHTML = "";
-                        }*/
-
+                        
                         catSelect = document.getElementById("catTheme" + myObj[0][2]);
                         var optionsHtml ="";
 
-                        console.log("testKira "+myObj[0][2])
+                        //console.log("testKira "+myObj[0][2])
                         for(let j = 0; j < myObj.length; j++) {
 
                             console.log(myObj[j][0] + myObj[j][1]+myObj[j][2]);
                             
-                            optionsHtml += "<li><a href = '?action=showCategory&id=" + myObj[j][0] + "'>" + myObj[j][1] + "</a></li>";
-                            /**optionsHtml += "<li><a href = '#'>" + myObj[j][1] + "</a></li>"; */
+                            //!!!!!!!!в href подставить функцию вываливающую категории для этой темы id через ajax
+                            optionsHtml += "<li><a onclick = 'blogForCat("  + myObj[j][0] + ")'>" + myObj[j][1] + "</a></li>";
 
+                            /**  */
                         }
                         catSelect.innerHTML = optionsHtml;
 
@@ -440,27 +430,98 @@ if (DEBUG) {
                 xmlhttp.send();
                 
             }
+            function blogsForTheme(sel){ //новая функция получает содержимое блога через Ajax и вываливает его на экран
+                
+                var BlogInhalt = null;
+                if(sel == ""){
+                    document.getElementById("lastNews").innerHTML = "NO DATA";
+                    return;
+                } else{
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
 
+                        document.getElementById("lastNews").innerHTML = this.responseText;
+                    }
+                    };
+                    xmlhttp.open("GET","them_test.php?thema_id="+sel,true);
+                    xmlhttp.send();                   
+                }
+                drehenUp();
+            }
+            
+            function blogForCat(sel){
+                //console.log("myTestAjax"+sel);
+                var BlogInhalt = null;
+                if(sel == ""){
+                    document.getElementById("lastNews").innerHTML = "NO DATA";
+                    return;
+                } else{
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        document.getElementById("lastNews").innerHTML = this.responseText;
+                    }
+                    };
+                    xmlhttp.open("GET","blog_for_cat.php?cat_id="+sel,true);
+                    xmlhttp.send();                   
+                }
+                drehenUp();
+            }
+
+
+            function last_News(sel){
+                var BlogInhalt = null;
+                if(sel == ""){
+                    document.getElementById("lastNews").innerHTML = "NO DATA";
+                    return;
+                } else{
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        document.getElementById("lastNews").innerHTML = this.responseText;
+                    }
+                    };
+                    xmlhttp.open("GET","last_news.php",true);
+                    xmlhttp.send();                   
+                }
+                drehenUp();
+            }
+            
             function catForThemenClose(){
                 //catSelect.innerHTML = "<li></li>";
             }
             function drehenUp(){
-                document.body.style.overflowY="scroll";
+                
                 document.getElementById('workTable').style.top="-200vh";
-                document.getElementById('workTable').style.transition = "all 2s ease-in-out";//test
-                            
+                 
+                document.getElementById("but11").style.display="block"
+                document.getElementById('workTable').style.transition = "all 1s ease-in-out";//test
+
+                
+                    setTimeout(() => {
+                    document.body.style.overflowY="scroll";
+                }, 1000);
+           
+
+                                       
             }
-            function drehenUp2(){
-                document.body.style.overflowY="scroll";
-                document.getElementById('workTable').style.top="-200vh";
-                         
-            }
+            
 
             function drehenUnten(){
+
+                document.getElementById('workTable').style.top="10rem";
+                document.getElementById("but11").style.display="none"
+                setTimeout(() => {
                 document.body.style.overflow="hidden";
-                
-                document.getElementById('workTable').style.top="10rem";  
+            }, 1000);
+                      
             }
+
+            
+
         </script>
 	</head>
 
@@ -469,14 +530,16 @@ if (DEBUG) {
 <!-- -------------------------------  workTable --------------------------------- -->
 <script>
     <?php if (($_GET['action'] == "showCategory")||($_GET['action'] == "showThemen")):?>
-        setTimeout(() => {
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
           /*  document.getElementById("workTable").style.visibility = "hidden";*/
-          drehenUp2();
-        }, 0.5);
+               //drehenUp();
+            }, 1000);
+         });
     <?php endif?> 
 
  </script>
-        <div id = 'workTable'>
+        <div id = 'workTable' style="display: <?= $_GET['action'] == "showCategory" || $_GET['action'] == "showThemen" ? "none" : "block" ?>;"> <!--убирает рабочий стол при вызове категорий или тем -->
             <div class='wrapNav'>
                 <?php if ($themesArray):?>
                     <ul>
@@ -487,16 +550,16 @@ if (DEBUG) {
             
                         foreach ($catArray as $categorie):
                         ?>
+
                             <li>
-                                <a href='?action=showCategory&id=<?=$categorie->getCat_id()?>'>Thema: <?=$categorie->getThema()->getThema_name()?>  - <?=$categorie->getCat_name()?></a></p> 
-                                
+                                <a onclick = blogForCat(<?=$categorie->getCat_id()?>)> <?=$categorie->getThema()->getThema_name()?> - <?=$categorie->getCat_name()?> </a>
                             </li>
                         <?php endforeach?>
                     </ul>                     
                 <?php endif?> 
             </div><!--END WRAP NAV -->
 
-            <div class='switchUnten'  onclick = 'drehenUp()'><button>Last News</button></div>
+            <div id='lnews' class='switchUnten'  onclick = 'last_News()'><button>Last News</button></div>
         </div>
         <!-- ------------------------------- END workTable --------------------------------- -->
         <div id="container">
@@ -531,10 +594,7 @@ if (DEBUG) {
                     </div>
 
                 </div>
-
-
-
-
+                <div class='switchOben'  onclick = 'drehenUnten()'><button id = "but11">Zum Start </button></div> 
                 <div class="clearer"></div>
 
                
@@ -543,19 +603,21 @@ if (DEBUG) {
 
 
 		    <!-- ------------------------------- HEADER ENDE --------------------------------- -->
-
+            
 
 
 
 		    <!-- ----------------------------- THEMEN ------------------------------------- -->
 
             <nav id="mySidenav" class="categories">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><!-- X закрывашка навигатора THEMEN -->
                 <?php if ($themesArray): ?>
                     <ul>
                         <?php foreach ($themesArray as $thema): ?>
                             <li>
-                                <a href='?action=showThemen&id=<?=$thema->getThema_id()?>'><?=$thema->getThema_name()?></a>
+                            <a  onclick = "blogsForTheme(<?=$thema->getThema_id()?>)"><?=$thema->getThema_name()?></a><!-- при нажатии вываливает категории для этой темы - в href получающую данные через ajax -->
+                                
+
                                 <ul id = "<?='catTheme' . $thema->getThema_id()?>">
                                     <script> catForThemen(<?=$thema->getThema_id()?>);</script>
                                 </ul>
@@ -575,12 +637,13 @@ if (DEBUG) {
         
            
             
-            
-                
+           
+             
             <main class='blogs'>
+            
                 <div id = 'lastNews'>
-                    <!--<div class='switchOben'  onclick = 'drehenUnten()'><button>Zu Haupt Table </button></div>-->
-                    <div class='switchOben'><a href='<?=$_SERVER['SCRIPT_NAME']?>'>zum Start</a></div>
+                    
+                    
                     <?php if ($blogsArray): ?>
 
                         <?php foreach ($blogsArray as $blog): ?>

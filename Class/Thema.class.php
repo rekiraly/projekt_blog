@@ -1,25 +1,4 @@
 <?php
-/*******************************************************************************************/
-
-/********************************/
-/********** CLASS THEMA **********/
-/********************************/
-/**
- * Class representing a user.
- * @extends
- * @interface      Interface iThema
- */
-
-/*
-Die Klasse ist quasi der Bauplan/die Vorlage für alle Objekte, die aus ihr erstellt werden.
-Sie gibt die Eigenschaften/Attribute eines späteren Objekts vor (Variablen) sowie
-die "Handlungen" (Methoden/Funktionen), die das spätere Objekt vornehmen kann.
-
-Jede Objekt einer Klasse ist nach dem gleichen Schema aufgebaut (gleiche Eigenschaften und Methoden),
-besitzt aber i.d.R. unterschiedliche Werte (Variablenwerte).
- */
-
-/*******************************************************************************************/
 
 /**
  *
