@@ -6,8 +6,11 @@
 	box-sizing: border-box;
 }
 #container{
-	/*position: relative;test*/
-	background-color: #D26CED;
+	position: relative;
+	background-color: #c9ba9d;
+	width: 80%;
+	margin: auto;
+	
 }
 label {
 	font-size: 0.9em;
@@ -101,12 +104,18 @@ body {
 	overflow: hidden;/*NEW*/
 	position: relative;
 	/*width: 100vw;*/
-	background-color: aqua;
+	
 	font-family: georgia;
 	letter-spacing: 0.04em;
 	padding: 10rem 50px 50px 50px;
 	line-height: 1.5em;
 	margin: 0 0 0 0;
+
+
+	background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+    linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),
+    linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+    background-size: 25px 25px;
 	
 	
 }
@@ -115,17 +124,20 @@ header{
 	top: 0;
 	height: 10rem;
 	z-index: 10;
-	background-color:#999;
+	background:url("../uploads/designimages/table.jpg") center center no-repeat;
+	background-size: cover;
+	/*background-color:#999;*/
 	width: 100%;
 	left: 0;
 	padding: 0.5rem 3rem 0.5rem 3rem;
-	border-bottom: 3px solid lightgray;
-	opacity: .9; /*временно*/
+	/*border-bottom: 3px solid lightgray;*/
+	/*opacity: .9; временно*/
 }
 h1, h2 {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	letter-spacing: 0.3em;
-	color: darkred;
+	color: rgb(255, 220, 220);
+	text-shadow: 4px 4px 6px #272626;
 }
 h2 {
 	letter-spacing: 0.1em;
@@ -194,25 +206,50 @@ a.expand:hover {
 
 /******************************************WrapNavi***********************************************************/
 
+.wrapNav{
+	/*justify-content: center;*/
+}
 .wrapNav ul {
+	/**/
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex; 
 	display: flex;
 	justify-content: space-evenly;
+	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
-	list-style: none;
+	list-style: none; 
 }
 .wrapNav ul li{
-	width: 120px;
+	
+	width: 200px;
+	height: 200px;
+	/*min-width: 100px;*/
 	margin: 10px;
-	background-color: #D26CED;
+	background: url(../uploads/designimages/stiker_S.png) center center no-repeat;
+	background-size: contain;
+	
+	/*box-shadow: 10px 10px 5px ;*/
+	
 }
 
 .wrapNav ul li a{
+	font-family:'Beer money';
+	color: rgb(27, 1, 1);	
+	font-size: x-large;
+	line-height: 2rem;
 	display: block;
-	padding: 18px;
+	padding: 2.5rem;
+	
+
+	
 }
  
 .wrapNav ul li a:hover{
-	
+	color: goldenrod;
 }
 
 
@@ -227,8 +264,13 @@ a.expand:hover {
 	position: absolute;/*test*/
 	top:10rem;
 	left:0px;
-	background-color: green;
+	background:url("../uploads/designimages/table.jpg") center center no-repeat ;
+	background-size: cover ;
 	z-index: 4;
+	display: flex;/*test for animation*/
+	
+	justify-content: center;
+
 
 }
 
@@ -236,9 +278,11 @@ a.expand:hover {
 .switchUnten{
 	position:absolute;
 	z-index: 5;
-	background-color: rgb(202, 113, 30);
-	bottom:20%;
+	
+	bottom:10rem;
 	left:50%;
+
+	
 }
 
 
@@ -251,34 +295,72 @@ a.expand:hover {
 }
 #lastNews{
 	height: 0%;
-	border:3px solid #0404f7;
+	border:3px solid #833502;
+}
+
+#lnews{
+	width: 30rem;
+	height: 20rem;
+	background: url("../uploads/designimages/Last_News_Sh1.png") center center no-repeat;
+	background-size: contain;
+	
+
+	
+	
+}
+#lnews p {
+	font-family:'Beer money';
+
+	text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
+	color: rgb(27, 1, 1);	
+	font-size: 3em;
+	line-height: 2rem;
+	margin: 25%;
+	-moz-transform: rotate(-15deg);
+	-webkit-transform: rotate(-15deg);
+	-o-transform: rotate(-15deg);
+	-ms-transform: rotate(-15deg); 
+	transform: rotate(-15deg);
+}
+
+#lnews p:hover{
+	color: goldenrod;
+	font-size: 3.2em;
 }
 
 
 /*button 'Themen'*/
 
-.cat {
+
+.cat{
 	/*position: fixed;*/
 	
-	background-color: #999;
-	border: 3px solid lightgray;
-	border-radius: 10px;
-	padding: 0.2em;
-	
-
+	/*border: 3px solid rgb(141, 75, 14);
+	border-radius: 10px;*/
+	padding: 0.5em 2em 0.5em 2em;
+	font-family: "Beer money";
 	
 }
 span.cat{     
-	/*display: block;*/
-	padding-top: 0.2em;
+	display: block;
+	
 }
 
 .cat:hover{
 	cursor: pointer;
-	background-color: darkred;
-	color: rgb(77, 72, 72);
+	
+	
 }
-
+#thm {
+	background:url("../uploads/designimages/pencil.png") center center no-repeat ;
+	background-size: contain;
+}
+#thm:hover{
+	font-size: 1.2rem;
+	text-align: center;
+	width: 120%;
+	height: 120%;
+}
 
 /************************************************************************************************************/
 
@@ -303,79 +385,121 @@ span.cat{
 }
 #mySidenav{
 	overflow-x: hidden;
+	background: url(../uploads/designimages/notebook2.png) center center no-repeat;
+	background-size: contain;
+	
+	
+
 }
-.categories .closebtn {
+.categories .closebtn a{
 	position: absolute;
-	top: 0;
+	top: 5rem;
 	right:0rem;
-	background-color: lightgray;
-	
-	font-size: 36px;
-	
+	/*background-color: #a57f4a;*/
+	font-size: 20px;	
   }
 
+  .closebtn a{
+	
+	background-color: #a57f4a;
+	
+	
+  }
+  
 .categories ul {
-	margin-top: 3em;
+	margin: 8em 1.5em 1.5em 1.5em;
+	padding: 0%;
 	list-style: none;
-	border: 3px solid rgb(253, 3, 199);	
+	/*border: 3px solid rgb(253, 3, 199);	*/
+	background-color: #fff;
+	background-image:
+	linear-gradient(90deg, transparent 79px, #abced4 79px, #eee 81px, transparent 81px),
+	linear-gradient(#eee .1em, transparent .1em);
+	border: 5px double rgba(97,47,14,0.3);
+	border-radius: 13px;
+	background-size: 100% 1.2em;
+
+	box-shadow: -3px 5px 7px 4px rgba(36, 32, 28, 0.76);
+	
 	text-align: center;
 }
 .categories ul li {
-	position:relative;
-	/*margin-top: 3em;*/
-	background-color: rgb(226, 247, 36);
-	border: 3px solid #262627;
+	position:relative;	
+}
 
+.categories ul li a:hover {
+	color: goldenrod;
 }
 .categories ul ul{
 	margin: 0 1.2em 2em 0;/**   выравнивание блока с подтемами относительно блока с темами*/
 	text-align: center;
 	display: none;
 	/*transition: all 2s linear;*/
-	background-color: rgb(240, 10, 152);
+	/*background-color: lightgray;*/
 	z-index: 100;
-
-	
-	border: 1px solid #0404f7;
 	position: absolute;
 	right:75%;
 	top: 0;	
+
+	background-color: rgb(252, 247, 247);
 	
+	border-top: 3px solid rgb(92, 69, 56);
+	border-left: 3px solid rgb(92, 69, 56);
+	border-bottom: 3px solid rgb(92, 69, 56);
+	border-right: 1px solid gray;
+	border-radius: 20px 0 0 20px;
+
+
 }
 
 .categories ul ul li a{
-	background-color:rgb(38, 65, 146);
+	/*background-color:lightgray;*/
 	overflow-x: visible;	
 }
 
-.categories ul ul li {
-	background-color:rgb(47, 189, 245);
-	
+.categories ul ul li a:hover{
+	color: goldenrod;
 }
+
 /** выпадание категорий при наведении на тему в навигаторк THEMEN */
 .categories li:hover > ul{ 
 	
 	display: block;
 }
-.categories a {
+.sideN{
+	/*max-height: 300px;*/
+}
+.sideN a {
 	display: inline-block;
-	/*display: block;new*/
-  	transition: 0.3s;/*new*/
-	text-decoration: none;
 	padding: 10px;
 	margin: 5px;
-	font-weight: bold;
-	color: darkred;
+	font-family:'Beer money';
+	font-size: 2rem;
 	
-	border: 1px solid white;
-	border-radius: 5px;
+  	transition: 0.3s;/*new*/
+	text-decoration: none;
+	
+	color: rgb(27, 1, 1);
+	
 }
+.sideN ul {
+	padding: 20px 20px;
+}
+
 .categories a:hover {
-	border: 1px solid darkred;
-	color: darkred;
+	/*border-bottom: 1px solid   rgb(27, 1, 1);*/
+	color:  rgb(27, 1, 1);
 	cursor: pointer;
 }
 
+.closebtn a{
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	border: 2px solid   rgb(61, 42, 29);
+	border-radius: 50px;
+
+}
 
 nav a{
 	display: block;
@@ -460,3 +584,11 @@ nav a{
 		margin-left: 0.2rem;
 	}
 }
+@font-face {
+	
+	font-family: "Beer money"; 
+	
+	src: url("../fonts/beermoney/beermoney.woff2") format("truetype"); 
+	font-style: normal; 
+	font-weight: normal; 
+  } 

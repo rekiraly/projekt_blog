@@ -350,9 +350,7 @@ if (DEBUG) {
 				document.getElementById("mySidenav").style.height = "auto";//test: height gegen width
                 document.getElementById("mySidenav").style.width = "auto";
                 document.getElementById("mySidenav").style.overflowX = "visible";
-                //document.getElementById("mySidenav").style.max-height = "500px";
-				//document.getElementsByClassName("blogs")[0].style.width = "100%"; //test
-				document.getElementById("mySidenav").style.border = "3px solid lightgray";
+               
 
 			}
 
@@ -528,17 +526,7 @@ if (DEBUG) {
 	<body>
         
 <!-- -------------------------------  workTable --------------------------------- -->
-<script>
-    <?php if (($_GET['action'] == "showCategory")||($_GET['action'] == "showThemen")):?>
-        document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(() => {
-          /*  document.getElementById("workTable").style.visibility = "hidden";*/
-               //drehenUp();
-            }, 1000);
-         });
-    <?php endif?> 
 
- </script>
         <div id = 'workTable' style="display: <?= $_GET['action'] == "showCategory" || $_GET['action'] == "showThemen" ? "none" : "block" ?>;"> <!--убирает рабочий стол при вызове категорий или тем -->
             <div class='wrapNav'>
                 <?php if ($themesArray):?>
@@ -558,8 +546,9 @@ if (DEBUG) {
                     </ul>                     
                 <?php endif?> 
             </div><!--END WRAP NAV -->
+        
+            <div id='lnews' class='switchUnten'  onclick = 'last_News()'><p>LAST NEWS</p></div>
 
-            <div id='lnews' class='switchUnten'  onclick = 'last_News()'><button>Last News</button></div>
         </div>
         <!-- ------------------------------- END workTable --------------------------------- -->
         <div id="container">
@@ -575,7 +564,7 @@ if (DEBUG) {
                         <?=$loginMessage?>
 
                         <!-- -------- Login Form -------- -->
-                        <span id = "adm" class="cat" value = "open" onclick="closeLog()">>>Login</span>
+                        <span id = "adm" class="cat" value = "open" onclick="closeLog()">Login</span>
                         <div id="login"  style="visibility: hidden">
                             <form action="" method="POST">
                                 <input type="hidden" name="formsentLogin">
@@ -590,7 +579,7 @@ if (DEBUG) {
                         <a href='dashboard.php'>zum Dashboard >></a><br>
                     <?php endif?>
                     <div class="fright">
-                        <span class ="cat" onclick="openNav()">Themen</span>
+                        <span id = "thm" class ="cat" onclick="openNav()">Themen</span>
                     </div>
 
                 </div>
@@ -608,22 +597,26 @@ if (DEBUG) {
 
 
 		    <!-- ----------------------------- THEMEN ------------------------------------- -->
-
-            <nav id="mySidenav" class="categories">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a><!-- X закрывашка навигатора THEMEN -->
+          
+            <nav id="mySidenav" class="categories" >
+                <div class="closebtn">
+                    <a href="javascript:void(0)"  onclick="closeNav()">&times;</a><!-- X закрывашка навигатора THEMEN -->   
+                </div>
                 <?php if ($themesArray): ?>
-                    <ul>
-                        <?php foreach ($themesArray as $thema): ?>
-                            <li>
-                            <a  onclick = "blogsForTheme(<?=$thema->getThema_id()?>)"><?=$thema->getThema_name()?></a><!-- при нажатии вываливает категории для этой темы - в href получающую данные через ajax -->
-                                
+                    <div class = "sideN">
+                        <ul>
+                            <?php foreach ($themesArray as $thema): ?>
+                                <li>
+                                <a  onclick = "blogsForTheme(<?=$thema->getThema_id()?>)"><?=$thema->getThema_name()?></a><!-- при нажатии вываливает категории для этой темы - в href получающую данные через ajax -->
+                                    
 
-                                <ul id = "<?='catTheme' . $thema->getThema_id()?>">
-                                    <script> catForThemen(<?=$thema->getThema_id()?>);</script>
-                                </ul>
-                            </li> <!--href='?action=showCategory&id= -->
-                        <?php endforeach?>
-                    </ul>
+                                    <ul id = "<?='catTheme' . $thema->getThema_id()?>">
+                                        <script> catForThemen(<?=$thema->getThema_id()?>);</script>
+                                    </ul>
+                                </li> 
+                            <?php endforeach?>
+                        </ul>
+                    </div>
                 <?php else: ?>
                     <p class="info">Noch keine Thema vorhanden.</p>
                 <?php endif?>
