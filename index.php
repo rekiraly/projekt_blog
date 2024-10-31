@@ -350,9 +350,8 @@ if (DEBUG) {
 				document.getElementById("mySidenav").style.height = "auto";//test: height gegen width
                 document.getElementById("mySidenav").style.width = "auto";
                 document.getElementById("mySidenav").style.overflowX = "visible";
-               
-
-			}
+                
+            }
 
 			/* Установите высоту боковой навигации в 0 */
 			function closeNav() {
@@ -386,12 +385,7 @@ if (DEBUG) {
                 }
             }
 
-           /* var category = document.getElementsByClassName("cat")[1];
-            if(document.width < (721 +'px')){
-                category.innerHTML = '|||'
-            }*/
-		
-            //var optionsHtml ="";
+          
             /** Заполнение выпадающей панели навигатора темами с помощью  ajax */
             var catSelect = null;
             function catForThemen(sel){
@@ -428,7 +422,7 @@ if (DEBUG) {
                 xmlhttp.send();
                 
             }
-            function blogsForTheme(sel){ //новая функция получает содержимое блога через Ajax и вываливает его на экран
+            function blogsForTheme(sel){ //функция получает содержимое блога для конкретной темы через Ajax и вываливает его на экран
                 
                 var BlogInhalt = null;
                 if(sel == ""){
@@ -448,7 +442,7 @@ if (DEBUG) {
                 drehenUp();
             }
             
-            function blogForCat(sel){
+            function blogForCat(sel){ // функция получает содержимое блога для конкретной категории через Ajax и вываливает его на экран
                 //console.log("myTestAjax"+sel);
                 var BlogInhalt = null;
                 if(sel == ""){
@@ -469,7 +463,7 @@ if (DEBUG) {
             }
 
 
-            function last_News(sel){
+            function last_News(sel){ //вываливает содержимое блога начиная с последних тем на экран, убирает панель рабочего стола
                 var BlogInhalt = null;
                 if(sel == ""){
                     document.getElementById("lastNews").innerHTML = "NO DATA";
@@ -491,7 +485,7 @@ if (DEBUG) {
             function catForThemenClose(){
                 //catSelect.innerHTML = "<li></li>";
             }
-            function drehenUp(){
+            function drehenUp(){ //поднимает рабочий стол
                 
                 document.getElementById('workTable').style.top="-200vh";
                  
@@ -508,7 +502,7 @@ if (DEBUG) {
             }
             
 
-            function drehenUnten(){
+            function drehenUnten(){// опускает рабочий стол
 
                 document.getElementById('workTable').style.top="10rem";
                 document.getElementById("but11").style.display="none"
@@ -527,7 +521,7 @@ if (DEBUG) {
         
 <!-- -------------------------------  workTable --------------------------------- -->
 
-        <div id = 'workTable' style="display: <?= $_GET['action'] == "showCategory" || $_GET['action'] == "showThemen" ? "none" : "block" ?>;"> <!--убирает рабочий стол при вызове категорий или тем -->
+        <div id = 'workTable'> <!-- убирает рабочий стол при вызове категорий или тем -->
             <div class='wrapNav'>
                 <?php if ($themesArray):?>
                     <ul>
