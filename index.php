@@ -485,30 +485,26 @@ if (DEBUG) {
             function catForThemenClose(){
                 //catSelect.innerHTML = "<li></li>";
             }
+
             function drehenUp(){ //поднимает рабочий стол
                 
                 document.getElementById('workTable').style.top="-200vh";
                  
                 document.getElementById("but11").style.display="block"
-                document.getElementById('workTable').style.transition = "all 1s ease-in-out";//test
-
-                
+                document.getElementById('workTable').style.transition = "all 1s ease-in-out";         
                     setTimeout(() => {
                     document.body.style.overflowY="scroll";
-                }, 1000);
-           
-
-                                       
+                }, 1000);                                                
             }
             
 
             function drehenUnten(){// опускает рабочий стол
 
-                document.getElementById('workTable').style.top="10rem";
+                document.getElementById('workTable').style.top="7rem";
                 document.getElementById("but11").style.display="none"
                 setTimeout(() => {
                 document.body.style.overflow="hidden";
-            }, 1000);
+                }, 1000);
                       
             }
 
@@ -540,9 +536,45 @@ if (DEBUG) {
                     </ul>                     
                 <?php endif?> 
             </div><!--END WRAP NAV -->
-        
-            <div id='lnews' class='switchUnten'  onclick = 'last_News()'><p>LAST NEWS</p></div>
-
+            <div class='wrapNav2'>
+                <ul>
+                    <li>
+                        <div id='lnews' class='switchUnten'  onclick = 'last_News()'><p>LAST NOTES</p></div>
+                    </li>
+            <!---------------------------------TEST GALERIE -------------------------------->
+                    <li>
+                        <div class="imgLoader"></div>
+                        <div id='galerie' class='switchUnten' >
+                            <div class="book">
+                                <div class="gap"></div>
+                                <div class="pages">
+                                    <div class="page"></div>
+                                    <div class="page"></div>
+                                    <div class="page"></div>
+                                    <div class="page"></div>
+                                    <div class="page"></div>
+                                    <div class="page"></div>
+                                </div>
+                                <div class="flips">
+                                <div class="flip flip1">
+                                    <div class="flip flip2">
+                                    <div class="flip flip3">
+                                        <div class="flip flip4">
+                                        <div class="flip flip5">
+                                            <div class="flip flip6">
+                                            <div class="flip flip7"></div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- ------------------------------- END workTable --------------------------------- -->
         <div id="container">
@@ -550,15 +582,14 @@ if (DEBUG) {
 
             <header>
                 <div class="fleft">
-                    <h1>'MyVoyage' Blog</h1>
-                    <p><a href='<?=$_SERVER['SCRIPT_NAME']?>'>zum Start</a></p>
+                    <h1>'MyVoyage' Blog</h1>                  
                 </div>
                 <div class="fright textRight">
                     <?php if (!isset($_SESSION['usr_id'])): ?>
                         <?=$loginMessage?>
 
                         <!-- -------- Login Form -------- -->
-                        <span id = "adm" class="cat" value = "open" onclick="closeLog()">Login</span>
+                        <div id = "adm" class="cat" value = "open" onclick="closeLog()">Login</div>
                         <div id="login"  style="visibility: hidden">
                             <form action="" method="POST">
                                 <input type="hidden" name="formsentLogin">
@@ -572,12 +603,13 @@ if (DEBUG) {
                         <a href="?action=logout">Logout</a><br>
                         <a href='dashboard.php'>zum Dashboard >></a><br>
                     <?php endif?>
-                    <div class="fright">
-                        <span id = "thm" class ="cat" onclick="openNav()">Themen</span>
-                    </div>
+                   
 
                 </div>
-                <div class='switchOben'  onclick = 'drehenUnten()'><button id = "but11">Zum Start </button></div> 
+                <div id = "thm" class="fright">
+                        <span  class ="cat" onclick="openNav()">Themen</span>
+                </div>
+                <div class='switchOben'  onclick = 'drehenUnten()'><div id = "but11">Zum Start </div></div>
                 <div class="clearer"></div>
 
                
