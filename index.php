@@ -345,11 +345,20 @@ if (DEBUG) {
 		<link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/debug.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" sizes="192x192" href="./uploads/designimages/favi192.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="./uploads/designimages/favi96.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./uploads/designimages/favi32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./uploads/designimages/favi16.png">
+        
+        
+        <link rel="manifest" href="./manifest.json">
+       
 		<script>
 			function openNav() {
 				document.getElementById("mySidenav").style.height = "auto";//test: height gegen width
                 document.getElementById("mySidenav").style.width = "auto";
                 document.getElementById("mySidenav").style.overflowX = "visible";
+                document.getElementById("mySidenav").style.overflowX = "visible"
                 
             }
 
@@ -499,7 +508,7 @@ if (DEBUG) {
             
 
             function drehenUnten(){// опускает рабочий стол
-
+                window.scrollTo(0, 0);
                 document.getElementById('workTable').style.top="7rem";
                 document.getElementById("but11").style.display="none"
                 setTimeout(() => {
@@ -530,7 +539,7 @@ if (DEBUG) {
                         ?>
 
                             <li>
-                                <a onclick = blogForCat(<?=$categorie->getCat_id()?>)> <?=$categorie->getThema()->getThema_name()?> - <?=$categorie->getCat_name()?> </a>
+                                <a onclick = blogForCat(<?=$categorie->getCat_id()?>)>  <?=$categorie->getCat_name()?> </a>
                             </li>
                         <?php endforeach?>
                     </ul>                     
@@ -600,8 +609,10 @@ if (DEBUG) {
                         </div>
                     <?php else: ?>
                         <!-- -------- Links -------- -->
-                        <a href="?action=logout">Logout</a><br>
-                        <a href='dashboard.php'>zum Dashboard >></a><br>
+                         <div id = "logout" class ="cat">
+                            <a href="?action=logout">Logout</a><br>
+                            <a href='dashboard.php'>zum Dashboard</a><br>
+                        </div>
                     <?php endif?>
                    
 
@@ -676,7 +687,7 @@ if (DEBUG) {
                                 <h2 class='clearer'><?=$blog->getBlog_headline()?></h2>
                                 <a href="comment.php?category=<?=$blog->getCategory()->getCat_name()?>"><i class="fa fa-comments-o" aria-hidden="true"></i></a>
 
-                                <p class='author'><?=$blog->getUser()->getFullname()?> (<?=$blog->getUser()->getUsr_city()?>) schrieb am <?=isoToEuDateTime($blog->getBlog_date())['date']?> um <?=isoToEuDateTime($blog->getBlog_date())['time']?> Uhr:</p>
+                                <p class='author'><?=$blog->getUser()->getFullname()?> (<?=$blog->getUser()->getUsr_city()?>) schrieb am <?= isoToEuDateTime($blog->getBlog_date())['date']?> um <?=isoToEuDateTime($blog->getBlog_date())['time']?> Uhr:</p>
 
                                 <p class='blogContent'>
 
@@ -684,7 +695,7 @@ if (DEBUG) {
                                         <img class='<?=$blog->getBlog_imageAlignment()?>' src='<?=$blog->getBlog_image()?>' alt='' title=''>
                                     <?php endif?>
 
-                                    <?=nl2br($blog->getBlog_content())?>
+                                    <?=($blog->getBlog_content())?>
                                 </p>
 
                                 <div class='clearer'></div>

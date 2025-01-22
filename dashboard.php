@@ -320,9 +320,7 @@ $themesArray = Thema::fetchAllThemesFromDb($pdo);
 
 // Kategorien aus DB zur späteren Verwendung in Array speichern
 
-echo "<pre class='debug'>\r\n";
-print_r($themesArray);
-echo "</pre>\r\n";
+
 /***************************************************************************************/
 ?>
 

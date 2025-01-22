@@ -33,7 +33,7 @@ if ($blogsArray){
     if ($blog->getBlog_image()){
         echo "<img class='" .$blog->getBlog_imageAlignment()."' src='" .$blog->getBlog_image() . "' alt='' title=''>";
         }
-    echo "nl2br(" . $blog->getBlog_content() . ")";
+    echo  $blog->getBlog_content();
     echo "</p>";
     echo "<div class='clearer'></div>";
     echo "<br>";
