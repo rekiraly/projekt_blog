@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Mai 2019 um 10:27
+-- Erstellungszeit: 28. Jan 2025 um 12:27
 -- Server-Version: 10.1.37-MariaDB
 -- PHP-Version: 7.3.0
 
@@ -27,11 +27,11 @@ USE `blog_v1`;
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `blogs`
+-- Tabellenstruktur für Tabelle `blog`
 --
 
-DROP TABLE IF EXISTS `blogs`;
-CREATE TABLE `blogs` (
+DROP TABLE IF EXISTS `blog`;
+CREATE TABLE `blog` (
   `blog_id` int(11) NOT NULL,
   `blog_headline` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `blog_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -42,53 +42,104 @@ CREATE TABLE `blogs` (
   `usr_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Daten für Tabelle `blogs`
---
-
-INSERT INTO `blogs` (`blog_id`, `blog_headline`, `blog_image`, `blog_imageAlignment`, `blog_content`, `blog_date`, `cat_id`, `usr_id`) VALUES
-(1, 'a-z A-Z 123 öüä ', NULL, 'fleft', 'aäb cde fgh ijk lmn oöp qrsß tuü vwx yz AÄBC DEF GHI JKL MNO ÖPQ RST UÜV WXYZ ! \"§ $%& /() =? * \'<>\r\n\r\n|; ²³~ @`´ ©«» ¼× {} aäb cde fgh ijk lmn oöp qrsß tuü vwx yz AÄBC DEF GHI JKL MNO ÖPQ RST UÜV WXYZ ! \"§ $%& /() =? * \'<>\r\n\r\n|; ²³~ @`´ ©«» ¼× {} aäb cde fgh ijk lmn oöp qrsß tuü vwx yz AÄBC DEF GHI JKL MNO ÖPQ RST UÜV WXYZ ! \"§ $%& /() =? * \'<> |; ²³~ @`´ ©«» ¼× {} aäb cde fgh ijk lmn oöp qrsß tuü vwx yz AÄBC DEF GHI JKL MNO ÖPQ RST UÜV WXYZ ! \"§ $%& /() =?', '2017-08-24 12:37:07', 1, 1),
-(2, 'Pangram', 'uploads/blogimages/375757AHJNDHUSGDIUNEZMT807_eselkarren.JPG', 'fleft', 'Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim.\r\n\r\nPolyfon zwitschernd aßen Mäxchens Vögel Rüben, Joghurt und Quark. \"Fix, Schwyz! \" quäkt Jürgen blöd vom Paß. Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Falsches Üben von Xylophonmusik quält jeden größeren Zwerg. Heizölrückstoßabdämpfung.', '2017-08-24 12:37:49', 2, 1),
-(3, 'Li Europan lingues', 'uploads/blogimages/243402SEMZJANNGTIUDHDHU401323_faultier.jpg', 'fleft', 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules.', '2017-08-24 12:38:49', 3, 1),
-(4, 'Lorem ipsum auf Deutsch', NULL, 'fleft', 'Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.\r\n\r\nUm ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher Betätigung, außer um Vorteile daraus zu ziehen?\r\n\r\nAber wer hat irgend ein Recht, einen Menschen zu tadeln, der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der Schmerz vermeidet, welcher keine daraus resultierende Freude nach sich zieht? Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.', '2017-08-24 12:40:35', 4, 1),
-(5, 'Typoblindtext', 'uploads/blogimages/467348HHTDJZADMNEGUISNU575425_03 - wolf.jpg', 'fright', 'Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle Buchstaben da sind und wie sie aussehen. Manchmal benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves, um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des Alphabets enthalten - man nennt diese Sätze »Pangrams«.\r\n\r\nSehr bekannt ist dieser: The quick brown fox jumps over the lazy old dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum Beispiel fast jede Schrift gut aus.\r\n\r\nQuod erat demonstrandum. Seit 1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht werden. Nichteinhaltung wird mit bis zu 245 € oder 368 $ bestraft.', '2017-08-24 12:41:22', 1, 1),
-(6, 'Trappatoni \'98', 'uploads/blogimages/744482DUUSMEATHZNJDHGNI857006_01 - calvin.gif', 'fleft', 'Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehört viele Situationen. Erstens: wir haben nicht offensiv gespielt.\r\n\r\nEs gibt keine deutsche Mannschaft spielt offensiv und die Name offensiv wie Bayern. Letzte Spiel hatten wir in Platz drei Spitzen: Elber, Jancka und dann Zickler. Wir müssen nicht vergessen Zickler. Zickler ist eine Spitzen mehr, Mehmet eh mehr Basler.\r\n\r\nIst klar diese Wörter, ist möglich verstehen, was ich hab gesagt? Danke. Offensiv, offensiv ist wie machen wir in Platz. Zweitens: ich habe erklärt mit diese zwei Spieler: nach Dortmund brauchen vielleicht Halbzeit Pause. Ich habe auch andere Mannschaften gesehen in Europa nach diese Mittwoch.\r\n\r\nIch habe gesehen auch zwei Tage die Training. Ein Trainer ist nicht ein Idiot! Ein Trainer sei sehen was passieren in Platz. In diese Spiel es waren zwei, drei diese Spieler waren schwach wie eine Flasche leer! Haben Sie gesehen Mittwoch, welche Mannschaft hat gespielt Mittwoch? Hat gespielt Mehmet oder gespielt Basler oder hat gespielt Trapattoni? Diese Spieler beklagen mehr als sie spielen! Wissen Sie, warum die Italienmannschaften kaufen nicht diese Spieler?', '2017-08-24 12:47:54', 2, 1),
-(7, 'Kafka', 'uploads/blogimages/980834UNSDGNDMHAEIJUHZT370393_06 - waschbaer.jpg', 'fleft', 'Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund! « sagte er, es war, als sollte die Scham ihn überleben.\r\n\r\nAls Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt. Und es war ihnen wie eine Bestätigung ihrer neuen Träume und guten Absichten, als am Ziele ihrer Fahrt die Tochter als erste sich erhob und ihren jungen Körper dehnte.', '2017-08-24 12:43:29', 3, 2),
-(8, 'Werther', 'uploads/blogimages/835230JNDEDHTNHUUSMZAIG810295_07 - eichhorn.jpg', 'fleft', 'Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die ich mit ganzem Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen geschaffen ist wie die meine.\r\n\r\nIch bin so glücklich, mein Bester, so ganz in dem Gefühle von ruhigem Dasein versunken, daß meine Kunst darunter leidet. Ich könnte jetzt nicht zeichnen, nicht einen Strich, und bin nie ein größerer Maler gewesen als in diesen Augenblicken.', '2017-08-24 12:44:03', 4, 2),
-(9, 'Er hörte leise', 'uploads/blogimages/840059SDIAUNHTUZMGDJHEN363488_04 - Katze.jpg', 'fright', 'Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte und mit der Beute verschwinden wollte!\r\n\r\nHatte einer seiner zahllosen Kollegen dieselbe Idee gehabt, ihn beobachtet und abgewartet, um ihn nun um die Früchte seiner Arbeit zu erleichtern? Oder gehörten die Schritte hinter ihm zu einem der unzähligen Gesetzeshüter dieser Stadt, und die stählerne Acht um seine Handgelenke würde gleich zuschnappen?', '2017-08-24 12:44:53', 1, 1),
-(10, 'Hinter den Wortbergen', 'uploads/blogimages/193760SUDJZHNGDMAIUHETN608783_05 - regen.gif', 'fright', 'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien.\r\n\r\nEs ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben.\r\n\r\nEines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen in die weite Grammatik. Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen und hinterhältigen Semikoli, doch das Blindtextchen ließ sich nicht beirren.', '2017-08-24 12:49:35', 3, 2),
-(11, 'Neu: Jetzt auch mit Emojis 😊', NULL, 'fleft', 'Ab sofort können mittels der Kollation &apos;utf8_unicode_mb4&apos; auch echte Emojis in den Text eingebunden werden.\r\n\r\nBeispielsweise so:\r\n\r\n🐶 🐱 🐭 🐹 🐰 🦊 🐻 🐼 🐨 🐯 🦁 🐮 🐷 🐽 🐸 🐵 🙈 🙉 🙊 🐒 🐔 🐧 🐦 🐤 🐣 🐥 🦆 🦅 🦉 🦇 🐺 🐗 🐴 🦄 🐝 🐛 🦋 🐌 🐚 🐞 🐜 🦗 🕷 🕸 🦂 🐢 🐍 🦎 🦖 🦕 🐙 🦑 🦐 🦀 🐡 🐠 🐟 🐬 🐳 🐋 🦈 🐊 🐅 🐆 🦓 🦍 🐘 🦏 🐪 🐫 🦒 🐃 🐂 🐄 🐎 🐖 🐏 🐑 🐐 🦌 🐕 🐩 🐈 🐓 🦃 🕊 🐇 🐁 🐀 🐿 🦔 🐾 🐉 🐲 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 🌞 🌝 🌛 🌜 🌚 🌕 🌖 🌗 🌘 🌑 🌒 🌓 🌔 🌙 🌎 🌍 🌏 💫 ⭐️ 🌟 ✨ ⚡️ ☄️ 💥 🔥 🌪 🌈 ☀️ 🌤 ⛅️ 🌥 ☁️ 🌦 🌧 ⛈ 🌩 🌨 ❄️ ☃️ ⛄️ 🌬 💨 💧 💦 ☔️ ☂️ 🌊 🌫\r\n\r\nDas Ganze geht natürlich auch mit den klassischen Smileys:\r\n\r\n😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾\r\n\r\n\r\nDas ist doch toll, oder? 🤪', '2019-05-21 08:24:31', 3, 1);
-
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `categories`
+-- Tabellenstruktur für Tabelle `category`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
   `cat_id` int(11) NOT NULL,
-  `cat_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `cat_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `thema_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Daten für Tabelle `categories`
+-- Daten für Tabelle `category`
 --
 
-INSERT INTO `categories` (`cat_id`, `cat_name`) VALUES
-(1, 'Lifestyle'),
-(2, 'Food'),
-(3, 'Mobile'),
-(4, 'Living');
+INSERT INTO `category` (`cat_id`, `cat_name`, `thema_id`) VALUES
+(1, 'Über mich', 1),
+(2, 'Was steht hier?', 1),
+(3, 'Côte d\'Azur', 2),
+(4, 'Istria', 3),
+(5, 'Essen', 3),
+(7, 'Leben', 4),
+(9, 'Impressium', 1),
+(10, 'Nachrichten', 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Tabellenstruktur für Tabelle `commentary`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `commentary`;
+CREATE TABLE `commentary` (
+  `com_id` int(11) NOT NULL,
+  `com_inhalt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cat_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usr_id` int(11) NOT NULL,
+  `cat_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `commentary`
+--
+
+INSERT INTO `commentary` (`com_id`, `com_inhalt`, `cat_date`, `usr_id`, `cat_name`) VALUES
+(33, 'My Probe Comment', '2020-07-14 07:33:29', 1, 'newTest'),
+(34, 'new new new', '2020-07-14 07:33:29', 1, 'Mobile'),
+(35, 'neoneo   neo test', '2020-07-14 07:33:29', 1, 'Mobile'),
+(36, 'lmö-', '2020-07-14 07:33:29', 1, 'newTest'),
+(37, 'pojolkjm jkh', '2020-07-14 07:33:29', 1, 'newTest'),
+(39, 'probe new test', '2020-07-14 07:33:29', 1, 'newTest'),
+(40, 'erste', '2020-07-14 07:33:29', 1, 'Food'),
+(41, 'zweite', '2020-07-14 07:33:29', 1, 'Food'),
+(42, 'new comm', '2020-07-14 07:33:29', 1, 'Mobile'),
+(44, 'abibu yoho!!!!', '2020-07-14 07:37:01', 1, 'newTest'),
+(45, 'testiiiiiii', '2020-07-14 07:37:24', 1, 'newTest'),
+(46, 'vvvvv', '2020-07-14 07:38:00', 1, 'Mobile'),
+(47, 'bbjhjhbjkb', '2020-07-14 07:38:20', 1, 'Mobile'),
+(48, 'uuu', '2020-07-14 07:42:49', 1, 'Mobile'),
+(49, 'hmjnkm my probe\n', '2020-07-14 07:43:44', 1, 'Mobile'),
+(50, 'beeeeeeeeeee', '2020-07-14 07:50:19', 1, 'Mobile'),
+(51, '', '2021-03-03 10:19:41', 1, ''),
+(52, '', '2021-03-03 10:28:52', 1, ''),
+(53, 'bla bla bla', '2021-04-30 13:02:56', 1, 'Leben');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `thema`
+--
+
+DROP TABLE IF EXISTS `thema`;
+CREATE TABLE `thema` (
+  `thema_id` int(11) NOT NULL,
+  `thema_name` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `thema`
+--
+
+INSERT INTO `thema` (`thema_id`, `thema_name`) VALUES
+(1, 'Allgemein Fragen'),
+(2, 'Frankreich'),
+(3, 'Kroatien'),
+(4, 'Germany'),
+(5, 'Ägypten');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `usr_id` int(11) NOT NULL,
   `usr_firstname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `usr_lastname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -98,11 +149,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Daten für Tabelle `users`
+-- Daten für Tabelle `user`
 --
 
-INSERT INTO `users` (`usr_id`, `usr_firstname`, `usr_lastname`, `usr_email`, `usr_city`, `usr_password`) VALUES
-(1, 'Peter', 'Petersen', 'a@b.c', 'New York', '$2y$10$tbCYcuHF/flLur6pSSpMheR5DKA2io7T9TcE/Gw3Q/2aulfoQiGD2'),
+INSERT INTO `user` (`usr_id`, `usr_firstname`, `usr_lastname`, `usr_email`, `usr_city`, `usr_password`) VALUES
+(1, 'Kira', 'Lysova', 'a@b.c', 'Nuremberg', '$2y$10$tbCYcuHF/flLur6pSSpMheR5DKA2io7T9TcE/Gw3Q/2aulfoQiGD2'),
 (2, 'Paul', 'Paulsen', 'paul@paulsen.net', 'Paris', '$2y$10$3vC0YKbOcGVXevncK82iFuUGP611c8Es1DxHVuDZ3652veoAFA2kO');
 
 --
@@ -110,23 +161,30 @@ INSERT INTO `users` (`usr_id`, `usr_firstname`, `usr_lastname`, `usr_email`, `us
 --
 
 --
--- Indizes für die Tabelle `blogs`
+-- Indizes für die Tabelle `category`
 --
-ALTER TABLE `blogs`
-  ADD PRIMARY KEY (`blog_id`),
-  ADD KEY `blogs_ibfk_1` (`usr_id`),
-  ADD KEY `blogs_ibfk_2` (`cat_id`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`cat_id`),
+  ADD KEY `blog_thema_cat` (`thema_id`);
 
 --
--- Indizes für die Tabelle `categories`
+-- Indizes für die Tabelle `commentary`
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
+ALTER TABLE `commentary`
+  ADD PRIMARY KEY (`com_id`),
+  ADD KEY `com_ibfk1` (`usr_id`) USING BTREE,
+  ADD KEY `com_ibfk2` (`cat_name`(191)) USING BTREE;
 
 --
--- Indizes für die Tabelle `users`
+-- Indizes für die Tabelle `thema`
 --
-ALTER TABLE `users`
+ALTER TABLE `thema`
+  ADD PRIMARY KEY (`thema_id`);
+
+--
+-- Indizes für die Tabelle `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`usr_id`);
 
 --
@@ -134,21 +192,27 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT für Tabelle `blogs`
+-- AUTO_INCREMENT für Tabelle `category`
 --
-ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `category`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT für Tabelle `categories`
+-- AUTO_INCREMENT für Tabelle `commentary`
 --
-ALTER TABLE `categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `commentary`
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT für Tabelle `users`
+-- AUTO_INCREMENT für Tabelle `thema`
 --
-ALTER TABLE `users`
+ALTER TABLE `thema`
+  MODIFY `thema_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT für Tabelle `user`
+--
+ALTER TABLE `user`
   MODIFY `usr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -156,11 +220,10 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints der Tabelle `blogs`
+-- Constraints der Tabelle `category`
 --
-ALTER TABLE `blogs`
-  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`usr_id`) REFERENCES `users` (`usr_id`),
-  ADD CONSTRAINT `blogs_ibfk_2` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`) ON DELETE CASCADE;
+ALTER TABLE `category`
+  ADD CONSTRAINT `blog_thema_cat` FOREIGN KEY (`thema_id`) REFERENCES `thema` (`thema_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
