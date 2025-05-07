@@ -95,7 +95,7 @@ class Comment implements iComment
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "SELECT * FROM Commentary";
+        $sql = "SELECT * FROM commentary";
         $params = null;
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
@@ -151,7 +151,7 @@ class Comment implements iComment
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "INSERT INTO Commentary
+        $sql = "INSERT INTO commentary
 									(com_inhalt, usr_id, cat_id)
 									VALUES (?, ?, ?)";
         $params = array(

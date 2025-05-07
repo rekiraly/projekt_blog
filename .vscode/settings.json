@@ -1,6 +1,0 @@
-{
-    "[php]": {
-        "editor.formatOnSave": true
-    },
-    "phpfmt.php_bin": "\"C:\\xampp\\php\\php.exe\""
-}

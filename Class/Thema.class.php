@@ -131,7 +131,7 @@ class Thema implements iThema
 
         } else {
 
-            $sql = "SELECT * FROM Thema
+            $sql = "SELECT * FROM thema
 									WHERE thema_name = ?
 									";
 
@@ -201,7 +201,7 @@ class Thema implements iThema
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "INSERT INTO Thema
+        $sql = "INSERT INTO thema
 									(thema_name)
 									VALUES (?)";
         $params = array($this->getThema_name());
@@ -305,7 +305,7 @@ class Thema implements iThema
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "SELECT * FROM Thema
+        $sql = "SELECT * FROM thema
 								 WHERE thema_id =?
 								 ";
         $params = array($this->getThema_id());

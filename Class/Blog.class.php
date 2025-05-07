@@ -278,7 +278,7 @@ class Blog implements iBlog
         if (DEBUG_C) {
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
-        //$blogObjectArray[]=NULL;
+        $blogObjectArray = array();
         $sql = "SELECT * FROM blog
 										INNER JOIN category USING(cat_id)
                                         INNER JOIN user USING(usr_id)
@@ -354,8 +354,8 @@ class Blog implements iBlog
         }
 
         $blogObjectArray = array();
-        $sql = "SELECT * FROM Blog
-								 INNER JOIN Category USING(cat_id)
+        $sql = "SELECT * FROM blog
+								 INNER JOIN category USING(cat_id)
 								 INNER JOIN user USING(usr_id)
                                  INNER JOIN thema USING(thema_id)
 								 WHERE cat_id =?
@@ -440,8 +440,8 @@ class Blog implements iBlog
         }
 
         $blogObjectArray = array();
-        $sql = "SELECT * FROM Blog
-								 INNER JOIN Category USING(cat_id)
+        $sql = "SELECT * FROM blog
+								 INNER JOIN category USING(cat_id)
 								 INNER JOIN user USING(usr_id)
                                  INNER JOIN thema USING(thema_id)
 								 WHERE thema_id =?
@@ -520,7 +520,7 @@ class Blog implements iBlog
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "INSERT INTO Blog
+        $sql = "INSERT INTO blog
 										(blog_headline, blog_image, blog_imageAlignment, blog_content, cat_id, usr_id)
 										VALUES (?, ?, ?, ?, ?, ?)";
 

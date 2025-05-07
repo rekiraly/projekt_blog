@@ -17,7 +17,14 @@ img {
 }
 
 header{
+  	position: fixed;
+	top: 0;
+	background-color:#999;
+	width: 100%;
+	left: 0;
+	padding: 0.3rem 0.3rem 0.3rem 0.3rem;
 	border-bottom: 1px dashed lightgray;
+  	z-index: 10;
 }
 
 
@@ -81,15 +88,7 @@ input[type="submit"]:hover {
 	color: white;
 }
 
-/*HEADER*/
-header{
-	position: fixed;
-	top: 0;
-	background-color:#999;
-	width: 100%;
-	left: 0;
-	padding: 0.3rem 0.3rem 0.3rem 0.3rem;
-}
+
 h1, h2 {
 	font-size: 1rem;
 	letter-spacing: 0.3em;
@@ -209,6 +208,7 @@ popupBox {
 	left: 25%;
 	top: 40%;
 	font-size: 1.3rem;
+  	z-index: 200;
 }
 popupBox p {
 	color: black;
@@ -234,50 +234,6 @@ popupBox a.button:hover {
 	color: black;
 }
 
-@media(max-width:700px){
-	
-	body {
-		line-height: 1.3em;
-		padding: 0.3em;
-		font-size: 0.7em;
-		
-	}
-	.blogs {
-		
-		padding: 2.5em 10px 10px 10px;
-		
-	}
-	.categories {
-		/*border: none;
-		right:0px ; */
-	}
-	.cat {
-		
-		/*right: 0rem;*/
-		
-	}
-	header{
-		position: fixed;
-		top: 0;
-		background-color:#999;
-		width: 100%;
-		left: 0;
-		padding: 0.3rem 0.3rem 0.3rem 0.3rem;
-	}
-	h1, h2 {
-		font-size: 1rem;
-		letter-spacing: 0.3em;
-		color: darkred;
-		margin: 0;
-		padding: 0;
-	}
-	
-	header p {
-		margin: 0;
-		padding-top: 0.5em;
-	}
-	
-}
 
 /*Dachboard switsch*/
 
@@ -356,11 +312,60 @@ input:checked + .slider-v2::after {
 
 /*END SWITSCH*/
 
-@media(max-width:500px){
+@media(max-width:700px){
+	
+	body {
+		line-height: 1.3em;
+		padding: 0.3em;
+		font-size: 0.7em;		
+	}
 	.blogs {
 		
-		padding: 3.5em 10px 10px 10px;
+		padding: 2.5em 10px 10px 10px;
 		
+	}
+	.categories {
+		/*border: none;
+		right:0px ; */
+	}
+	
+	header{
+		position: fixed;
+		top: 0;
+		background-color:#999;
+		width: 100%;
+		left: 0;
+		padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+	}
+	h1, h2 {
+		font-size: 1rem;
+		letter-spacing: 0.3em;
+		color: darkred;
+		margin: 0;
+		padding: 0;
+	}
+	
+	header p {
+		margin: 0;
+		padding-top: 0.5em;
+	}
+    input.dashboard, select.dashboard, textarea.dashboard {
+        width: 80%;
+       
+    }
+    input[type="file"] {
+        width: 80%;
+    }
+    input[type="submit"].dashboard {
+		height: auto;
+	}
+
+}
+
+
+@media(max-width:500px){
+	.blogs {
+		padding: 3.5em 10px 10px 10px;
 	}
 	
 	.fleft {

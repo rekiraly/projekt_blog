@@ -13,10 +13,11 @@ Konstanten besitzen im Gegensatz zu Variablen kein $-Präfix
 
 /********** DATABASE CONFIGURATION **********/
 define("DB_SYSTEM", "mysql");
-define("DB_HOST", "localhost");
-define("DB_NAME", "blog_v1");
-define("DB_USER", "root");
-define("DB_PWD", "");
+// define("DB_HOST", "access-5017138258.webspace-host.com");
+define("DB_HOST", "db5017146812.hosting-data.io");
+define("DB_NAME", "dbs13781522");
+define("DB_USER", "dbu1374323");
+define("DB_PWD", "X!6QdkyvLv8H!a9");
 
 /********** FORMULAR CONFIGURATION **********/
 define("MIN_INPUT_LENGTH", 3);
@@ -41,3 +42,4 @@ define("DEBUG_C", false); // Debugging for classes
 define("DEBUG_T", false); // Debugging for traits
 
 /*************************************************************************************/
+?>

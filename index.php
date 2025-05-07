@@ -1,5 +1,4 @@
 <?php
-
 /***************************************************************************************/
 /**
  *
@@ -7,7 +6,7 @@
  *
  *@author             Lysova <rekiraly@gmail.com>
  *@version             item eg. 1.1.1
- *@lastmodifydate    18-07-2019
+ *@lastmodifydate    18-01-2025
  *@todo
  *
  */
@@ -21,9 +20,10 @@
 session_name("blogProject");
 session_start();
 if (!isset($_SESSION['usr_id'])) {
+  
     session_destroy();
+  
 }
-
 /***********************************/
 /********** CONFIGURATION **********/
 /***********************************/
@@ -79,11 +79,9 @@ $blogsArray = Blog::fetchAllBlogFromDb($pdo);
 if (DEBUG) {
     echo "<pre class='debug'>Line <b>" . __LINE__ . "</b> <i>(" . basename(__FILE__) . ")</i>:<br>\r\n";
 }
-
 if (DEBUG) {
     print_r($blogsArray);
 }
-
 if (DEBUG) {
     echo "</pre>";
 }
@@ -193,12 +191,12 @@ if (isset($_POST['formsentLogin'])) {
     if (DEBUG) {
         echo "<p class='debug hint'>Line <b>" . __LINE__ . "</b>: Formular 'Login' wurde abgeschickt... <i>(" . basename(__FILE__) . ")</i></p>";
     }
-
+	
     $user = new User();
     $user->setUsr_email($_POST['loginName']);
     $user->setUsr_password($_POST['loginPassword']);
 
-    /*
+   /* 
     if(DEBUG)            echo "<pre class='debug'>Line <b>" . __LINE__ . "</b> <i>(" . basename(__FILE__) . ")</i>:<br>\r\n";
     if(DEBUG)            print_r($user);
     if(DEBUG)            echo "</pre>";
@@ -266,6 +264,8 @@ if (isset($_POST['formsentLogin'])) {
                 // Fehlerfall
                 if (DEBUG) {
                     echo "<p class='debug err'>Line <b>" . __LINE__ . "</b>: FEHLER: Passwort stimmt nicht mit DB überein! <i>(" . basename(__FILE__) . ")</i></p>";
+                	echo $loginPassword;
+                  	echo $user->getUsr_password();
                 }
 
                 $loginMessage = "<p class='error'>Benutzername oder Passwort falsch!</p>";
@@ -287,10 +287,9 @@ if (isset($_POST['formsentLogin'])) {
                 $_SESSION['usr_firstname'] = $user->getUsr_firstname();
                 $_SESSION['usr_lastname'] = $user->getUsr_lastname();
 
-                /********** UMLEITUNG AUF DASHBOARD **********/
-
-                header("Location: dashboard.php");
-                exit();
+              	/********** UMLEITUNG AUF DASHBOARD ********* */
+               	header("Location: dashboard.php");              
+         		exit();
 
             } // PASSWORT PRÜFEN ENDE
 
@@ -341,6 +340,7 @@ if (DEBUG) {
 
 	<head>
 		<meta charset="utf-8">
+      	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>'MyVoyage' Blog</title>
 		<link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/debug.css">
@@ -548,7 +548,7 @@ if (DEBUG) {
             <div class='wrapNav2'>
                 <ul>
                     <li>
-                        <div id='lnews' class='switchUnten'  onclick = 'last_News()'><p>LAST NOTES</p></div>
+                        <div id='lnews' class='switchUnten'  onclick = 'last_News()'><p>letzte Notizen</p></div>
                     </li>
             <!---------------------------------TEST GALERIE -------------------------------->
                     <li>
@@ -620,7 +620,7 @@ if (DEBUG) {
                 <div id = "thm" class="fright">
                         <span  class ="cat" onclick="openNav()">Themen</span>
                 </div>
-                <div class='switchOben'  onclick = 'drehenUnten()'><div id = "but11">Zum Start </div></div>
+              <div class='switchOben'  onclick = 'drehenUnten()'><div id = "but11"><a>Home</a></div></div>
                 <div class="clearer"></div>
 
                
@@ -695,7 +695,7 @@ if (DEBUG) {
                                         <img class='<?=$blog->getBlog_imageAlignment()?>' src='<?=$blog->getBlog_image()?>' alt='' title=''>
                                     <?php endif?>
 
-                                    <?=($blog->getBlog_content())?>
+                                    <?php echo nl2br($blog->getBlog_content());?>
                                 </p>
 
                                 <div class='clearer'></div>

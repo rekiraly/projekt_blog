@@ -274,13 +274,15 @@ a.expand:hover {
 	display: none;
     background: url("../uploads/designimages/home.png") center center no-repeat;
     background-size: contain;
-    width: 4rem;
+    width: 5rem;
     height: 4rem;
-    font-family:'Beer money';
-    color: rgb(216, 199, 189);
+    
     padding-top: 4rem;
-
-
+}
+#but11 a{
+  	font-family:'Beer money';
+  	font-size: 3rem;
+    text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
 }
 
 /******************************************WrapNavi***********************************************************/
@@ -325,7 +327,8 @@ a.expand:hover {
 	display: block;
 	
     text-align: center;
-    margin-top:2rem;
+    margin-top:5rem;
+    padding: 0rem 1.5rem;
     
 }
 
@@ -341,7 +344,7 @@ a.expand:hover {
 	color:white;
 }
 
-.wrapNav2{/*TEST*/
+.wrapNav2{
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -1013,7 +1016,7 @@ box-shadow: -14px 5px 17px -2px rgba(0,0,0,0.59);
 .switchOben{
 	position:fixed;
 	top: 3rem;/*7rem*/
-	left:50%;
+	left: calc(50% - 2em);
 	z-index:3;
 }
 #lastNews{
@@ -1030,7 +1033,7 @@ box-shadow: -14px 5px 17px -2px rgba(0,0,0,0.59);
 	font-size: 3em;
 	line-height: 2rem;
 	margin: 2%;
-	padding: 25% 0 0 20%;
+	padding: 25% 0 0 12%;
 	-moz-transform: rotate(-15deg);
 	-webkit-transform: rotate(-15deg);
 	-o-transform: rotate(-15deg);
@@ -1117,7 +1120,7 @@ span.cat{
 
   .closebtn a{
 	
-	background-color: #a57f4a;
+	background-color: #faab02;
 	
 	
   }
@@ -1243,12 +1246,16 @@ nav a{
 }
 
 /******************************************************************************************************************************/
-
-@media(max-width:1860px){
+@media screen and (min-width:1350px) and (max-width:1860px){
 
    h1{
      font-size: 3rem;
    }
+  .fleft{
+        
+        text-align: center;
+      	margin-right: 1rem;
+    }
     .wrapNav ul {
         justify-content: center;/*space-between*/
         list-style: none; 
@@ -1296,13 +1303,17 @@ nav a{
        
 
 }
-
-@media(max-width:1350px){
+@media screen and (min-width:1060px) and (max-width:1349px){
     h1{
         font-size: 2rem;
     }
     h2{
         font-size: 1.2em;
+    }
+  .fleft{
+        
+        text-align: center;
+      	margin-right: 1rem;
     }
     .wrapNav ul {
         
@@ -1310,7 +1321,7 @@ nav a{
 
         
     }
-
+	
     
     .wrapNav ul li{
         
@@ -1354,21 +1365,21 @@ nav a{
    
     
 }
-
-@media(max-width:1060px){
-
+@media screen and (min-width:960px) and (max-width:1059px){
+	
     h1{
         font-size: 2rem;
     }
     h2{
         font-size: 1.3em;
     }
+  	.fleft{
+        
+        text-align: center;
+      	margin-right: 1rem;
+    }
     .wrapNav ul {
-        
-	    padding: 0 1rem 0 1rem; /*5rem 10rem 5rem 10rem;*/
-        
-
-        
+        padding: 0 1rem 0 1rem; /*5rem 10rem 5rem 10rem;*/
     }
     
     .wrapNav ul li{
@@ -1379,10 +1390,10 @@ nav a{
         min-height: 160px;
         /*min-width: 100px;*/
         margin: 0rem 2rem 0rem 2rem;
-            }
+     }
     
     .wrapNav ul li a{
-       	
+       	padding: 1rem 1rem;
         font-size: large;
         margin-top: 2rem;
     }
@@ -1392,7 +1403,7 @@ nav a{
     }
     .wrapNav2 ul li{
 	    scale: 0.8;
-       
+        margin: 2rem 1rem 2rem 1rem;
         
     }
     #thm{
@@ -1401,6 +1412,11 @@ nav a{
     }
     #adm{
         font-size: 1.2rem;
+    }
+  	.sideN a {
+        padding: 5px;
+        margin: 3px;
+        font-size: 1.5rem;   
     }
 
     #but11{
@@ -1409,49 +1425,193 @@ nav a{
     }
 }
 
-
-@media(max-width:960px){	
-
+@media screen and (min-width:650px) and (max-width:959px){
+    #container{
+        width: 90%;
+    }
+	.fleft{
+        margin-right: 1rem;
+    }
     h1{
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     h2{
         font-size: 1.1em;
     }
 
     .wrapNav ul li {
-        width: 6rem;
-        height: 8rem;
-        
-       
-        margin: 0rem;
+        width: 8rem;
+        height: 10rem;
+        margin: 0.5rem;
     }
-
+    .wrapNav ul li a{
+        font-size: large;
+      	padding: 0rem 1rem;
+    }
     
 
     .wrapNav ul{
         
         margin-top: 0px;
         margin-bottom: 0px;
+        padding: 0rem;
     }
 
     .wrapNav2 ul{
         padding: 0 1rem 0 1rem;
         margin-top: 0px;
+        margin-bottom: 2%;
        
     }
     
     .wrapNav2 ul li {
-        
-        
-        margin: 0rem 1rem 0rem 1rem;
-      }
-    #thm{
-        
-        font-size: 1rem;
+        width: 300px;
+        scale: 0.8;
+        margin: 0rem;
     }
-    #adm{
-        font-size: 1 rem;
+
+    
+     #thm{
+        background: none;
+        font-size: 1rem;
+        margin: 0rem;
+        padding: 0rem;
+        color: #000000;
+        background-color: #faab02;
+        border: solid #555 2px;
+        border-radius: 25%;
+        margin: 2rem 0.5rem 0rem 0rem;
+    }
+    #adm {
+        height: 1.5rem;
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+      	margin: 1.5rem 0 0 0.5rem;
+    }
+    .cat{
+        padding: 0em;
+    }
+    #but11{
+        scale: 0.5;
+        padding-top: 6rem;
+    }
+
+   #logout {
+       	width: 4rem;
+        padding: 0.2rem;
+        margin:  0rem;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    #logout a {
+
+      font-size: 0.8rem;
+    }
+    .sideN a {
+      padding: 5px;
+      margin: 3px;
+      font-size: 1.5rem;   
+    }
+
+}
+
+
+@media screen and (min-width:400px) and (max-width:649px){
+  	body{
+    padding: 8rem 1rem 1rem 1rem;
+  	}
+  	#container{
+      width: 100%;
+      padding: 0.5rem;    	
+    }
+  	header{
+      padding: 0.5rem;
+  	}
+    .fleft{
+        width: 55%;
+        text-align: center;
+      	margin-right: 1rem;
+    }
+    header h1{
+        width: auto;
+        padding: 0.5rem 0rem;
+        margin: 0.2rem;
+        
+        box-shadow:none;
+        
+    }
+    
+    h1{
+        font-size: 1.8rem;
+    }
+    h2{
+        font-size: 1.1em;
+    }
+
+    .wrapNav ul li {
+        width: 8rem;
+        height: 10rem;
+        margin: 0.5rem;
+    }
+    .wrapNav ul li a{
+        font-size: large;
+      	padding: 0rem 1rem;
+    }
+    
+
+    .wrapNav ul{
+        
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0rem;
+    }
+
+    .wrapNav2 ul{
+        padding: 0 1rem 0 1rem;
+       	margin-top: -1rem;
+        margin-bottom: 2%;
+       
+    }
+    
+    .wrapNav2 ul li {
+        width: 300px;
+        scale: 0.8;
+        margin: 0rem;
+    }
+
+    
+    #thm{
+        background: none;
+        font-size: 1rem;
+        margin: 0.2rem;
+        padding: 0rem;
+        color: #000000;
+        background-color: #faab02;
+        border: solid #555 2px;
+        border-radius: 25%;
+        margin-right: 0rem;
+    }
+    #adm {
+        height: 1.5rem;
+        text-shadow:none;
+        transform: scale(1.2);
+        background: none;
+        background-color: #faab02;
+        
+        padding: 0;
+        margin: 0.3rem;
+        margin-right: 0.4rem;
+        font-size: 1rem;
+        color: #000000;
+        border: solid #555 2px;
+        border-radius: 25%;
+    }
+    #adm:hover{
+        transform: scale(1.5);
+    }
+    .cat{
+        padding: 0em;
+        margin: 0rem;
     }
     #but11{
         scale: 0.5;
@@ -1461,168 +1621,171 @@ nav a{
     #logout {
        
         padding: 0.2rem;
-        margin: 1rem 0rem 1rem 0rem;
-        
-      }
+        margin:  0rem;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
       #logout a {
        
         font-size: 0.8rem;
       }
 
+   .sideN a {
+    padding: 2px;
+    margin: 2px;
+    font-size: 1rem;   
+  }
+
 }
-
-
-
-@media(max-width:650px){
-    #container {
-        
-        width: 100%;
-        
-        padding: 0rem;
-      }
-    header{
-        padding: 0.5rem 1.5rem 0.5rem  1.5rem;
-    }
-
-    h1{
-        font-size: 1.4rem;
-
-    }
-    header h1{
-        padding: 0.4rem;
-        margin-top: 1.5rem;
-    }
-    h2{
-        margin: 0.5em 0 0.5em 0;
-    }
-    
-    p.fright{
-        margin: 0.5em;
-    }
-    p.author{
-        font-size: small;
-    }
-    .fleft {
-       
-        margin-right: 0rem;
-      }
-
-     .sideN a {
-        padding: 3px;
-        margin: 2px;
-        font-size: 1rem;   
-    }
-
-    .wrapNav ul li {
-        width: 6rem;
-        height: 8rem;
-        margin: 0rem;
-        min-height: 80px;
-        min-width: 50px;
-      }
-
-    .wrapNav ul li a{
-        margin-top: 0rem;
-        padding: 2rem 1rem 0rem 1rem;
-    }
-
-   
-
-    .wrapNav2 ul{
-        padding: 0 1rem 0 1rem;
-    }
-    
-    .wrapNav2 ul li {
-        
-        
-        margin: 0rem 1rem 0rem 1rem;
-      }
-      #thm {
-       
-        font-size: 0.8rem;
-        margin-top: 1.5rem;
-        margin-right: 0rem;
-        padding: 0.5rem;
-        -webkit-transition: -webkit-transform .8s ease-in-out;
-        transition:         transform .2s ease;
-    }
-
-      #thm:hover{
-        
-        text-align: center;
-        transform: scale(1.2);
-    
-    }
-    .wrapNav2 ul li div#lnews{
-        background: none;
-       
-       
-       
-        height: 100px;
-        /*margin: 5px;*/
-    }
-    .wrapNav2 ul li:nth-child(1){
-       
-        height: 100px;
-    }
-    .wrapNav2 ul li #lnews{
-       
-        justify-content: center;
-    }
-
-
-    #lnews p{
-        margin: auto;
-        text-align: center;
-       
-        transform: rotate(0deg);
-    }
-
+@media screen and (max-width:399px){
+  header{
+    height:6rem;
+  }
+  #workTable{
+    top: 6rem;
+    height: calc(100vh - 6rem);
+  }
   
-    .categories {
-        
-        top: 3rem;
-        right: 2rem;
-    }
+  body{
+    padding: 8rem 1rem 1rem 1rem;
+  }
+  header{
+      padding: 0.5rem;
+  }
+  #container{
+      width: 100%;
+      padding: 0rem;    	
+   }
+  .fleft{
+      width: 65%;
+      text-align: center;
+  	  margin: 0.5rem;
+    	
+   }
+  header h1{
+    width: auto;
+    padding: 0.5rem 0rem;
+    margin: 0.2rem;
 
-    #adm{
-        padding: 0.2rem;
-        padding-top: 0rem;
-        height: 80px; 
-        font-size: 0.8 rem;
-    }
-    #but11{
-        scale: 0.5;
-        padding-top: 6rem;
+    box-shadow:none;
+  }
+    
+  h1{
+    font-size: 1.8rem;
+  }
+  h2{
+    font-size: 1.1em;
+  }
 
-    }
-   
+  .wrapNav ul li {
+        width: 7.5rem;
+        height: 9rem;
+        margin: 0rem 1rem;
+   }
+  .wrapNav ul li a{
+    font-size: large;
+    padding: 0rem 1.4rem;
+    margin-top: 3rem;
+  }
 
-}
 
-@media(max-width:500px){
-    #adm{
-        height: 30px; 
+
+  .wrapNav ul{
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0rem;
+  }
+
+  .wrapNav2 ul{
+    padding: 0 1rem 0 1rem;
+    margin-top: -2rem;
+    margin-bottom: 15%;
+
+  }
+
+  .wrapNav2 ul li {
+    width: 300px;
+    scale: 0.8;
+    margin: 0rem;
+  }
+  .wrapNav2 ul li div#lnews{
+    background: none;
+    height: 100px;
+    /*margin: 5px;*/
+  }
+  .wrapNav2 ul li:nth-child(1){
+
+    height: 100px;
+  }
+  .wrapNav2 ul li #lnews{
+
+    justify-content: center;
+  }
+
+
+  #lnews p{
+    margin: auto;
+    padding: 25% 0%;
+    text-align: center;
+
+    transform: rotate(0deg);
+  }
+
+  #thm{
+    background: none;
+    font-size: 1rem;
+    margin: 0rem;
+    padding: 0rem;
+    color: #000000;
+    background-color: #faab02;
+    border: solid #555 2px;
+    border-radius: 25%;
+    margin-right: 0.4rem;
+  }
+  #adm {
+        height: 1.5rem;
+        text-shadow: none;
+        transform: scale(1.2);
         background: none;
-        background-color: rgb(88, 83, 83);
-        border: 5px solid #A4A4A4;
-        border-radius: 37px;
-       
-        
-        margin: auto;
+        background-color: #faab02;
+        padding: 0rem;
+        margin-top: 0.1rem;
+        margin-right: 0.4rem;
         font-size: 1rem;
-             
+        color: #000000;
+        border: solid #555 2px;
+        border-radius: 25%;
+        line-height: 1.2rem;
     }
-    #adm:hover{
-        
-        -webkit-transform:scale(1.1);
-        transform: scale(1.1);
-           
-    }
-    header h1{
-        margin: 1rem 0rem 1rem 0rem;
-        font-size: 1.2rem;
-    }
+  #adm:hover{
+    transform: scale(1.5);
+  }
+  .cat{
+    padding: 0em;
+    margin: 0rem;
+  }
+  #but11{
+    scale: 0.5;
+    padding-top: 6rem;
+  }
+
+  #logout {
+
+    padding: 0.2rem;
+    margin:  0rem;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  #logout a {
+
+    font-size: 0.8rem;
+  }
+  .sideN a {
+    padding: 2px;
+    margin: 2px;
+    font-size: 1rem;   
+  }
    
 }
 

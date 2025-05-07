@@ -5,6 +5,7 @@
 
 	<head>
 		<meta charset="utf-8">
+     	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>'MyVoyage' Blog</title>
         <link rel="icon" type="image/png" href="http://example.com/myicon.png">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>

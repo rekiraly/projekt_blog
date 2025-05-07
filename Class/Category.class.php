@@ -178,7 +178,7 @@ class Category implements iCategory
             }
         } else {
 
-            $sql = "SELECT COUNT(*) FROM Category
+            $sql = "SELECT COUNT(*) FROM category
 									WHERE cat_name = ? AND thema_id = ?
 									";
 
@@ -226,7 +226,7 @@ class Category implements iCategory
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "INSERT INTO Category
+        $sql = "INSERT INTO category
 									(cat_name, thema_id)
 									VALUES (?, ?)";
         $params = array($this->getCat_name(), $this->getThema()->getThema_id());
@@ -341,7 +341,7 @@ class Category implements iCategory
                 echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
             }
 
-            $sql = "SELECT * FROM Category INNER JOIN thema USING(thema_id)
+            $sql = "SELECT * FROM category INNER JOIN thema USING(thema_id)
                                      WHERE cat_id =?
                                     ";
             $params = array($this->getCat_id());

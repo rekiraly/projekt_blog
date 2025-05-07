@@ -165,7 +165,7 @@ class User implements iUser
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "SELECT * FROM User WHERE usr_email = ? OR usr_id = ?";
+        $sql = "SELECT * FROM user WHERE usr_email = ? OR usr_id = ?";
         $params = array($this->getUsr_email(), $this->getUsr_id());
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
@@ -225,7 +225,7 @@ class User implements iUser
         // Da der NULL-safe Vergleichsoperator keine Verneinung kennt (!=), muss auf =
         // geprüft und der gesamte Ausdruck mittels NOT negiert werden.
 
-        $sql = "SELECT COUNT(usr_email) FROM User
+        $sql = "SELECT COUNT(usr_email) FROM user
 								WHERE usr_email = ?
 								AND NOT usr_id <=> ?
 								";
@@ -268,7 +268,7 @@ class User implements iUser
             echo "<h3 class='debugClass'><b>Line  " . __LINE__ . "</b>: Aufruf " . __METHOD__ . "() (<i>" . basename(__FILE__) . "</i>)</h3>";
         }
 
-        $sql = "INSERT INTO User
+        $sql = "INSERT INTO user
 									(usr_firstname, usr_lastname, usr_email, usr_password)
 									VALUES (?, ?, ?, ?)";
         $params = array(

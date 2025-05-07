@@ -190,7 +190,7 @@ if (isset($_POST['formsentNewBlogEntry'])) {
     $thema->fetchThemaFromDb($pdo);
 /*------------------------------------------------------------------------*/
     $cat_id = cleanString($_POST['cat_id']);
-    if (1) {
+    if (DEBUG) {
         echo "<p class='debug'>Line <b>" . __LINE__ . "</b>: \$cat_id: $cat_id <i>(" . basename(__FILE__) . ")</i></p>";
     }
     $category = new Category($cat_id, null, $thema);
@@ -276,27 +276,27 @@ if (isset($_POST['formsentNewBlogEntry'])) {
                 echo "</pre>";
             }
             /********** BLOGEINTRAG IN DB SPEICHERN **********/
-
-            if (!($blog->saveToDb($pdo))) {
-                // Fehlerfall
-                if (DEBUG) {
-                    echo "<p class='debug err'>Line <b>" . __LINE__ . "</b>: FEHLER beim Speichern des neuen Beitrags! <i>(" . basename(__FILE__) . ")</i></p>";
-                }
-
-                $blogmessage = "<p class='error'>Fehler beim Speichern des Beitrags!</p>";
-
-            } else {
-                // Erfolgsfall
-                if (DEBUG) {
-                    echo "<p class='debug ok'>Line <b>" . __LINE__ . "</b>: Neuer Beitrag erfolgreich mit der ID $blog->getBlog_id() gespeichert. <i>(" . basename(__FILE__) . ")</i></p>";
-                }
-
-                // Felder aus Formular wieder leeren
+			// Felder aus Formular wieder leeren
                 $cat_id = null;
                 $thema_id = null;
                 $blog_headline = null;
                 $blog_imageAlignment = null;
                 $blog_content = null;
+            if (($blog->saveToDb($pdo))) {
+                // Erfolgsfall
+                if (DEBUG) {
+                    echo "<p class='debug ok'>Line <b>" . __LINE__ . "</b>: Neuer Beitrag erfolgreich mit der ID $blog->getBlog_id() gespeichert. <i>(" . basename(__FILE__) . ")</i></p>";
+                }
+
+            } else {
+                
+				// Fehlerfall
+                if (DEBUG) {
+                    echo "<p class='debug err'>Line <b>" . __LINE__ . "</b>: FEHLER beim Speichern des neuen Beitrags! <i>(" . basename(__FILE__) . ")</i></p>";
+                }
+
+                $blogmessage = "<p class='error'>Fehler beim Speichern des Beitrags!</p>";
+                
 
             } // BLOGEINTRAG IN DB SPEICHERN ENDE
 
@@ -330,6 +330,7 @@ $themesArray = Thema::fetchAllThemesFromDb($pdo);
 
 	<head>
 		<meta charset="utf-8">
+      	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>'MyVoyage' Blog</title>
 		<!--<link rel="stylesheet" href="css/main.css"> -->
         <link rel="stylesheet" href="css/dashboard.css">
@@ -552,7 +553,7 @@ $themesArray = Thema::fetchAllThemesFromDb($pdo);
                 xmlhttp.send();
             }
 
-</script>e
+</script>
 	</body>
 </html>
 
