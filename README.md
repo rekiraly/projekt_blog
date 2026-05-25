@@ -31,3 +31,8 @@ Die persistente Speicherung der Blogeinträge, Kategorien und Benutzerdaten erfo
 * **Schutz vor SQL-Injections:** Alle datenbankrelevanten Operationen (insbesondere beim Login und beim Erstellen von Beiträgen) werden konsequent über **Prepared Statements** (vorbereitete SQL-Abfragen) und *Parameter-Binding* ausgeführt. Böswillige SQL-Injektionen werden dadurch effektiv verhindert.
 * **Datenintegrität:** Die Tabellenstruktur nutzt relationale Verknüpfungen (Foreign Keys), um die Konsistenz zwischen Autoren, Themen und den dazugehörigen Blogbeiträgen sauber abzubilden.
 * **Sichere Konfiguration:** Sensible Zugangsdaten (Datenbank-Passwörter, Hostnamen) sind strikt vom Quellcode getrennt und werden über eine vom Git-Repository ausgeschlossene Konfigurationsdatei geladen.
+
+  
+1. **Repository klonen:**
+```bash
+   git clone [https://github.com/rekiraly/projekt_blog.git](https://github.com/rekiraly/projekt_blog.git)
