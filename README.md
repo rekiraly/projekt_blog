@@ -1,4 +1,4 @@
-# MyVoyage Blog
+# Projekt_blog
 
 Ein OOP-basiertes Full-Stack-Webprojekt zur Verwaltung und Veröffentlichung von Reiseberichten.
 
